@@ -1,0 +1,183 @@
+
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { CalendarDays, Mail, Phone, SendHorizonal } from "lucide-react";
+
+const ContactForm = () => {
+  const [formState, setFormState] = useState({
+    nombre: "",
+    empresa: "",
+    email: "",
+    telefono: "",
+    interes: "",
+    mensaje: ""
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormState(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSelectChange = (value: string) => {
+    setFormState(prev => ({ ...prev, interes: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Formulario enviado:", formState);
+    // Aquí iría la lógica para enviar el formulario
+    alert("Gracias por tu interés. Nos pondremos en contacto contigo pronto.");
+  };
+
+  return (
+    <section id="contacto" className="py-16 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4">¿Listo para transformar tu negocio?</h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Completa el formulario y un consultor de BDR Informatica se pondrá en contacto contigo para ofrecerte una demo personalizada de Odoo.
+          </p>
+        </div>
+        
+        <div className="flex flex-col lg:flex-row gap-8 max-w-6xl mx-auto bg-white rounded-xl overflow-hidden shadow-xl">
+          <div className="lg:w-2/5 bg-odoo p-8 text-white">
+            <h3 className="text-2xl font-bold mb-6">Contacta con nosotros</h3>
+            <p className="mb-8">
+              Estamos aquí para resolver todas tus dudas sobre Odoo y ayudarte a implementar la solución que mejor se adapte a tu negocio.
+            </p>
+            
+            <div className="space-y-6">
+              <div className="flex items-center">
+                <Mail className="h-5 w-5 mr-4" />
+                <div>
+                  <p className="font-medium">Email</p>
+                  <p>info@bdr.ad</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center">
+                <Phone className="h-5 w-5 mr-4" />
+                <div>
+                  <p className="font-medium">Teléfono</p>
+                  <p>+376 XXX XXX</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center">
+                <CalendarDays className="h-5 w-5 mr-4" />
+                <div>
+                  <p className="font-medium">Roadshow Odoo Andorra</p>
+                  <p>Fecha: Próximamente</p>
+                  <p>Lugar: Andorra la Vella</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="lg:w-3/5 p-8">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="nombre" className="text-sm font-medium">Nombre completo *</label>
+                  <Input 
+                    id="nombre" 
+                    name="nombre" 
+                    value={formState.nombre} 
+                    onChange={handleChange} 
+                    required 
+                    placeholder="Tu nombre y apellidos" 
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="empresa" className="text-sm font-medium">Empresa *</label>
+                  <Input 
+                    id="empresa" 
+                    name="empresa" 
+                    value={formState.empresa} 
+                    onChange={handleChange} 
+                    required 
+                    placeholder="Nombre de tu empresa" 
+                  />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-medium">Email *</label>
+                  <Input 
+                    id="email" 
+                    name="email" 
+                    type="email" 
+                    value={formState.email} 
+                    onChange={handleChange} 
+                    required 
+                    placeholder="tu@email.com" 
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="telefono" className="text-sm font-medium">Teléfono</label>
+                  <Input 
+                    id="telefono" 
+                    name="telefono" 
+                    type="tel" 
+                    value={formState.telefono} 
+                    onChange={handleChange} 
+                    placeholder="+376 XXX XXX" 
+                  />
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <label htmlFor="interes" className="text-sm font-medium">¿Qué te interesa? *</label>
+                <Select 
+                  onValueChange={handleSelectChange} 
+                  defaultValue={formState.interes}
+                  required
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Selecciona una opción" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="info">Información sobre Odoo</SelectItem>
+                    <SelectItem value="demo">Solicitar una demostración</SelectItem>
+                    <SelectItem value="roadshow">Asistir al Roadshow</SelectItem>
+                    <SelectItem value="implementacion">Implementar Odoo en mi empresa</SelectItem>
+                    <SelectItem value="migracion">Migrar desde otro sistema</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              <div className="space-y-2">
+                <label htmlFor="mensaje" className="text-sm font-medium">Mensaje</label>
+                <Textarea 
+                  id="mensaje" 
+                  name="mensaje" 
+                  value={formState.mensaje} 
+                  onChange={handleChange} 
+                  placeholder="Cuéntanos más sobre tus necesidades o cualquier pregunta que tengas" 
+                  rows={4} 
+                />
+              </div>
+              
+              <Button type="submit" className="w-full bg-bdr hover:bg-bdr-light">
+                <SendHorizonal className="h-4 w-4 mr-2" />
+                Solicitar contacto
+              </Button>
+              
+              <p className="text-xs text-gray-500 text-center">
+                Al enviar este formulario, aceptas nuestra política de privacidad y el tratamiento de tus datos para contactarte.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ContactForm;

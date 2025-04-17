@@ -1,12 +1,64 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import Header from "@/components/Header";
+import Benefits from "@/components/Benefits";
+import Testimonial from "@/components/Testimonial";
+import Roadshow from "@/components/Roadshow";
+import ContactForm from "@/components/ContactForm";
+import Footer from "@/components/Footer";
+import FloatingCTA from "@/components/FloatingCTA";
+import SEO from "@/components/SEO";
+import { ArrowUp } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Index = () => {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Controlar la visibilidad del botón para volver arriba
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 500) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Función para volver al inicio de la página
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-white">
+      <SEO />
+      <Header />
+      <main>
+        <Benefits />
+        <Testimonial />
+        <Roadshow />
+        <ContactForm />
+      </main>
+      <Footer />
+
+      {/* Botón para volver arriba */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 bg-odoo hover:bg-odoo-dark text-white p-3 rounded-full shadow-lg transition-all z-50"
+          aria-label="Volver arriba"
+        >
+          <ArrowUp className="h-6 w-6" />
+        </button>
+      )}
+      
+      <FloatingCTA />
     </div>
   );
 };

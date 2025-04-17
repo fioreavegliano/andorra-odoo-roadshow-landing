@@ -25,8 +25,8 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				odoo: {
-					DEFAULT: '#9b87f5',
-					dark: '#7E69AB'
+					DEFAULT: '#6610f2', // Updated to the new purple shade
+					dark: '#6610f2'     // Matching the new default color
 				},
 				bdr: {
 					DEFAULT: '#1EAEDB',

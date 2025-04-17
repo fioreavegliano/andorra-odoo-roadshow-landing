@@ -7,14 +7,16 @@ const SEO = () => {
     "@type": "Event",
     "name": "Odoo Roadshow Andorra",
     "description": "Descubre el ERP más completo en el evento tecnológico del año en Andorra con BDR Informatica, partner oficial de Odoo.",
-    "startDate": "2025-05-01T09:00",
-    "endDate": "2025-05-01T18:00",
+    "startDate": "2025-04-08T17:30",
+    "endDate": "2025-04-08T21:00",
     "location": {
       "@type": "Place",
-      "name": "Andorra la Vella",
+      "name": "Hotels Hesperia Andorra S.A.",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "Carrer Prat Gran 3, 5",
         "addressLocality": "Andorra la Vella",
+        "postalCode": "AD700",
         "addressRegion": "Andorra",
         "addressCountry": "AD"
       }

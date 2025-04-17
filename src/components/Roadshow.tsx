@@ -24,7 +24,7 @@ const Roadshow = () => {
                 </div>
                 <div>
                   <p className="font-bold">Fecha</p>
-                  <p className="text-gray-600">Próximamente</p>
+                  <p className="text-gray-600">8 de Abril de 2025</p>
                 </div>
               </div>
               
@@ -34,8 +34,9 @@ const Roadshow = () => {
                 </div>
                 <div>
                   <p className="font-bold">Ubicación</p>
-                  <p className="text-gray-600">Andorra la Vella</p>
-                  <p className="text-gray-600">Principat d'Andorra</p>
+                  <p className="text-gray-600">Hotels Hesperia Andorra S.A.</p>
+                  <p className="text-gray-600">Carrer Prat Gran 3, 5</p>
+                  <p className="text-gray-600">AD700 Andorra, Andorra</p>
                 </div>
               </div>
               
@@ -45,7 +46,7 @@ const Roadshow = () => {
                 </div>
                 <div>
                   <p className="font-bold">Horario</p>
-                  <p className="text-gray-600">09:00 - 18:00</p>
+                  <p className="text-gray-600">17:30 - 21:00</p>
                 </div>
               </div>
               

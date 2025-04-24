@@ -3,17 +3,50 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { X } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "@/components/ui/use-toast";
 
 const FloatingCTA = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("CTA rápido enviado:", { nombre, email });
-    alert("¡Gracias! Nos pondremos en contacto contigo pronto.");
-    setIsOpen(false);
+    setIsSubmitting(true);
+    
+    try {
+      const { error } = await supabase
+        .from('leads')
+        .insert([
+          {
+            nombre,
+            email,
+            empresa: 'No especificada',
+            telefono: 'No especificado',
+            interes: 'CTA Rápido',
+            mensaje: 'Solicitud de información rápida'
+          }
+        ]);
+
+      if (error) throw error;
+
+      toast({
+        title: "¡Gracias por tu interés!",
+        description: "Nos pondremos en contacto contigo pronto.",
+      });
+      setIsOpen(false);
+    } catch (error) {
+      console.error('Error:', error);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Ha ocurrido un error. Por favor, inténtalo de nuevo.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -56,8 +89,9 @@ const FloatingCTA = () => {
           <Button 
             type="submit" 
             className="w-full bg-bdr hover:bg-bdr-light transition-colors"
+            disabled={isSubmitting}
           >
-            Solicitar información
+            {isSubmitting ? "Enviando..." : "Solicitar información"}
           </Button>
         </form>
       </div>

@@ -1,10 +1,11 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CalendarDays, Mail, Phone, SendHorizonal } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "@/components/ui/use-toast";
 
 const ContactForm = () => {
   const [formState, setFormState] = useState({
@@ -15,6 +16,7 @@ const ContactForm = () => {
     interes: "",
     mensaje: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -25,11 +27,41 @@ const ContactForm = () => {
     setFormState(prev => ({ ...prev, interes: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Formulario enviado:", formState);
-    // Aquí iría la lógica para enviar el formulario
-    alert("Gracias por tu interés. Nos pondremos en contacto contigo pronto.");
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('leads')
+        .insert([formState]);
+
+      if (error) throw error;
+
+      toast({
+        title: "¡Gracias por tu mensaje!",
+        description: "Nos pondremos en contacto contigo pronto.",
+      });
+
+      // Reset form
+      setFormState({
+        nombre: "",
+        empresa: "",
+        email: "",
+        telefono: "",
+        interes: "",
+        mensaje: ""
+      });
+    } catch (error) {
+      console.error('Error:', error);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Ha ocurrido un error al enviar el formulario. Por favor, inténtalo de nuevo.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -83,24 +115,24 @@ const ContactForm = () => {
                 <div className="space-y-2">
                   <label htmlFor="nombre" className="text-sm font-medium">Nombre completo *</label>
                   <Input 
-                    id="nombre" 
-                    name="nombre" 
-                    value={formState.nombre} 
-                    onChange={handleChange} 
-                    required 
-                    placeholder="Tu nombre y apellidos" 
+                    id="nombre"
+                    name="nombre"
+                    value={formState.nombre}
+                    onChange={handleChange}
+                    required
+                    placeholder="Tu nombre y apellidos"
                   />
                 </div>
                 
                 <div className="space-y-2">
                   <label htmlFor="empresa" className="text-sm font-medium">Empresa *</label>
                   <Input 
-                    id="empresa" 
-                    name="empresa" 
-                    value={formState.empresa} 
-                    onChange={handleChange} 
-                    required 
-                    placeholder="Nombre de tu empresa" 
+                    id="empresa"
+                    name="empresa"
+                    value={formState.empresa}
+                    onChange={handleChange}
+                    required
+                    placeholder="Nombre de tu empresa"
                   />
                 </div>
               </div>
@@ -109,25 +141,25 @@ const ContactForm = () => {
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium">Email *</label>
                   <Input 
-                    id="email" 
-                    name="email" 
-                    type="email" 
-                    value={formState.email} 
-                    onChange={handleChange} 
-                    required 
-                    placeholder="tu@email.com" 
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formState.email}
+                    onChange={handleChange}
+                    required
+                    placeholder="tu@email.com"
                   />
                 </div>
                 
                 <div className="space-y-2">
                   <label htmlFor="telefono" className="text-sm font-medium">Teléfono</label>
                   <Input 
-                    id="telefono" 
-                    name="telefono" 
-                    type="tel" 
-                    value={formState.telefono} 
-                    onChange={handleChange} 
-                    placeholder="+376 XXX XXX" 
+                    id="telefono"
+                    name="telefono"
+                    type="tel"
+                    value={formState.telefono}
+                    onChange={handleChange}
+                    placeholder="+376 XXX XXX"
                   />
                 </div>
               </div>
@@ -155,18 +187,22 @@ const ContactForm = () => {
               <div className="space-y-2">
                 <label htmlFor="mensaje" className="text-sm font-medium">Mensaje</label>
                 <Textarea 
-                  id="mensaje" 
-                  name="mensaje" 
-                  value={formState.mensaje} 
-                  onChange={handleChange} 
-                  placeholder="Cuéntanos más sobre tus necesidades o cualquier pregunta que tengas" 
-                  rows={4} 
+                  id="mensaje"
+                  name="mensaje"
+                  value={formState.mensaje}
+                  onChange={handleChange}
+                  placeholder="Cuéntanos más sobre tus necesidades o cualquier pregunta que tengas"
+                  rows={4}
                 />
               </div>
               
-              <Button type="submit" className="w-full bg-bdr hover:bg-bdr-light">
+              <Button 
+                type="submit" 
+                className="w-full bg-bdr hover:bg-bdr-light"
+                disabled={isSubmitting}
+              >
                 <SendHorizonal className="h-4 w-4 mr-2" />
-                Solicitar contacto
+                {isSubmitting ? "Enviando..." : "Solicitar contacto"}
               </Button>
               
               <p className="text-xs text-gray-500 text-center">

@@ -1,8 +1,11 @@
-
 import { Button } from "@/components/ui/button";
 import { Calendar, MapPin, Clock, Users } from "lucide-react";
 
 const Roadshow = () => {
+  const handleEventRegistration = () => {
+    window.location.href = "https://bdrinformatica.com/solicitar-cita";
+  };
+  
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -62,7 +65,10 @@ const Roadshow = () => {
             </div>
             
             <div className="mt-8">
-              <Button className="bg-odoo hover:bg-odoo-dark transition-colors w-full">
+              <Button 
+                onClick={handleEventRegistration}
+                className="bg-odoo hover:bg-odoo-dark transition-colors w-full"
+              >
                 Inscríbete al evento
               </Button>
             </div>

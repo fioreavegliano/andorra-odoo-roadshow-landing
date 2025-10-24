@@ -1,6 +1,9 @@
 
-import Header from "@/components/Header";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
 import Benefits from "@/components/Benefits";
+import Savings from "@/components/Savings";
+import IndustriesPreview from "@/components/IndustriesPreview";
 import Testimonial from "@/components/Testimonial";
 import Roadshow from "@/components/Roadshow";
 import ContactForm from "@/components/ContactForm";
@@ -38,9 +41,12 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <SEO />
-      <Header />
+      <Navbar />
+      <Hero />
       <main>
         <Benefits />
+        <Savings />
+        <IndustriesPreview />
         <Testimonial />
         <Roadshow />
         <ContactForm />

@@ -86,7 +86,7 @@ const ContactForm = () => {
                 <Mail className="h-5 w-5 mr-4" />
                 <div>
                   <p className="font-medium">Email</p>
-                  <p>info@bdr.ad</p>
+                  <p>odooleads@bdrinformatica.com</p>
                 </div>
               </div>
               
@@ -95,6 +95,18 @@ const ContactForm = () => {
                 <div>
                   <p className="font-medium">Teléfono</p>
                   <p>+376 XXX XXX</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start">
+                <svg className="h-5 w-5 mr-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <div>
+                  <p className="font-medium">Oficina</p>
+                  <p className="text-sm">Passeig de l'Arnaldeta de Caboet, 11</p>
+                  <p className="text-sm">AD700 Escaldes-Engordany</p>
                 </div>
               </div>
               

@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Benefits from "@/components/Benefits";
@@ -12,6 +11,9 @@ import FloatingCTA from "@/components/FloatingCTA";
 import SEO from "@/components/SEO";
 import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
+import OdooSavingsSimulator from "@/components/OdooSavingsSimulator";
+import PricingPacks from "@/components/PricingPacks";
+import PartnersSection from "@/components/PartnersSection";
 
 const Index = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -34,7 +36,7 @@ const Index = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
 
@@ -45,10 +47,12 @@ const Index = () => {
       <Hero />
       <main>
         <Benefits />
-        <Savings />
+        <PricingPacks />
         <IndustriesPreview />
         <Testimonial />
-        <Roadshow />
+        <PartnersSection />
+        <OdooSavingsSimulator />
+
         <ContactForm />
       </main>
       <Footer />
@@ -63,7 +67,7 @@ const Index = () => {
           <ArrowUp className="h-6 w-6" />
         </button>
       )}
-      
+
       <FloatingCTA />
     </div>
   );

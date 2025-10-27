@@ -1,151 +1,175 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Check, Star } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import SEO from "@/components/SEO";
+
+import {
+  Check,
+  Star,
+  ShieldCheck,
+  Settings2,
+  Users2,
+  Sparkles,
+} from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
+import React from "react";
+
+const CALENDLY_URL = "https://bdrinformatica.com/solicitar-cita"; // tu enlace
+
+const packsHome = [
+  {
+    id: "pack-10",
+    title: "Pack 10",
+    users: 10,
+    cta: "/contacto?pack=10",
+    featured: false,
+    tilt: "-rotate-[0.6deg]",
+  },
+  {
+    id: "pack-15",
+    title: "Pack 15",
+    users: 15,
+    cta: "/contacto?pack=15",
+    featured: false,
+    tilt: "-rotate-[0.4deg]",
+  },
+  {
+    id: "pack-20",
+    title: "Pack 20",
+    users: 20,
+    cta: "/contacto?pack=20",
+    featured: true,
+  },
+  {
+    id: "pack-25",
+    title: "Pack 25",
+    users: 25,
+    cta: "/contacto?pack=25",
+    featured: false,
+    tilt: "rotate-[0.4deg]",
+  },
+  {
+    id: "custom",
+    title: "Custom",
+    users: undefined,
+    cta: CALENDLY_URL,
+    featured: false,
+    tilt: "rotate-[0.6deg]",
+  },
+];
+
+const featuresBase = [
+  "Implementación guiada por BDR",
+  "Soporte y actualizaciones",
+  "Integraciones esenciales",
+  "Formación inicial",
+];
+
+const faqs = [
+  {
+    q: "¿Qué incluyen los precios?",
+    a: "Licencias de Odoo, infraestructura de hosting, backups, actualizaciones, soporte técnico y formación inicial según el plan.",
+  },
+  {
+    q: "¿Puedo cambiar de plan más adelante?",
+    a: "Sí. Puedes escalar o ajustar tu plan cuando lo necesites, sin perder tus datos ni configuraciones.",
+  },
+  {
+    q: "¿Hay costes adicionales?",
+    a: "Solo en casos de desarrollos a medida o integraciones muy específicas. Siempre se cotiza previamente y con transparencia.",
+  },
+];
 
 const Pricing = () => {
-  const packs = [
-    {
-      name: "Starter",
-      users: 10,
-      price: "Consultar",
-      description: "Perfecto para pequeñas empresas que comienzan",
-      features: [
-        "10 usuarios incluidos",
-        "Módulos básicos de CRM y Ventas",
-        "Gestión de inventario",
-        "Facturación electrónica",
-        "Soporte estándar por email",
-        "1 sesión de formación"
-      ],
-      recommended: false
-    },
-    {
-      name: "Professional",
-      users: 15,
-      price: "Consultar",
-      description: "Para empresas en crecimiento",
-      features: [
-        "15 usuarios incluidos",
-        "Todos los módulos Starter",
-        "Contabilidad completa",
-        "Gestión de proyectos",
-        "Portal de clientes",
-        "Soporte prioritario",
-        "3 sesiones de formación",
-        "Personalización básica"
-      ],
-      recommended: true
-    },
-    {
-      name: "Business",
-      users: 20,
-      price: "Consultar",
-      description: "Solución completa para empresas establecidas",
-      features: [
-        "20 usuarios incluidos",
-        "Todos los módulos Professional",
-        "Gestión de fabricación",
-        "MRP (Planificación de recursos)",
-        "Gestión de almacenes múltiples",
-        "Integraciones avanzadas",
-        "Soporte premium 24/7",
-        "5 sesiones de formación",
-        "Personalización avanzada"
-      ],
-      recommended: false
-    },
-    {
-      name: "Enterprise",
-      users: 25,
-      price: "Consultar",
-      description: "Para grandes organizaciones",
-      features: [
-        "25 usuarios incluidos",
-        "Todos los módulos Business",
-        "Módulos personalizados",
-        "Integración completa con sistemas existentes",
-        "Gestor de cuenta dedicado",
-        "SLA garantizado",
-        "Formación ilimitada",
-        "Desarrollo a medida",
-        "Consultoría estratégica"
-      ],
-      recommended: false
-    }
-  ];
-
-  const scrollToContact = () => {
-    window.location.href = "/#contacto";
-  };
+  const scrollToContact = () => (window.location.href = "/#contacto");
 
   return (
     <div className="min-h-screen bg-background">
       <SEO />
       <Navbar />
-      
+
       <main className="pt-16">
-        {/* Hero Section */}
+        {/* HERO */}
         <section className="bg-gradient-to-r from-odoo-dark to-odoo py-20 text-white">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Planes y Precios Transparentes
             </h1>
             <p className="text-xl mb-8 max-w-3xl mx-auto">
-              Elige el plan que mejor se adapte a las necesidades de tu empresa. 
-              Todos nuestros packs incluyen infraestructura, soporte y actualizaciones.
+              Elige el plan que mejor se adapta a tu empresa. Todos los packs
+              incluyen infraestructura, soporte y actualizaciones.
             </p>
           </div>
         </section>
 
-        {/* Comparison with Odoo.com */}
+        {/* POR QUÉ ELEGIR */}
         <section className="py-12 bg-gray-50">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-6">¿Por qué elegir BDR Informática?</h2>
+            <div className="max-w-5xl mx-auto text-center">
+              <h2 className="text-3xl font-bold mb-4">
+                ¿Por qué elegir BDR Informática?
+              </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Además de los precios competitivos de Odoo, obtienes valor adicional:
+                Más allá del precio, sumamos experiencia, cercanía y calidad en
+                la ejecución.
               </p>
+
               <div className="grid md:grid-cols-3 gap-6">
-                <Card>
-                  <CardHeader>
+                <Card className="bg-gradient-to-b from-white to-odoo/5 border-odoo/20">
+                  <CardHeader className="space-y-2">
+                    <div className="h-10 w-10 rounded-full bg-odoo/15 text-odoo flex items-center justify-center mx-auto">
+                      <Users2 className="h-5 w-5" />
+                    </div>
                     <CardTitle>Soporte Local</CardTitle>
+                    <CardDescription>
+                      Equipo en Andorra, cercano a tu negocio.
+                    </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">
-                      Equipo técnico en Andorra que habla tu idioma y entiende tu negocio.
-                    </p>
-                  </CardContent>
                 </Card>
-                <Card>
-                  <CardHeader>
+
+                <Card className="bg-gradient-to-b from-white to-odoo/5 border-odoo/20">
+                  <CardHeader className="space-y-2">
+                    <div className="h-10 w-10 rounded-full bg-odoo/15 text-odoo flex items-center justify-center mx-auto">
+                      <Settings2 className="h-5 w-5" />
+                    </div>
                     <CardTitle>Personalización</CardTitle>
+                    <CardDescription>
+                      Adaptamos Odoo a tus procesos, no al revés.
+                    </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">
-                      Adaptamos Odoo a tus procesos específicos, no al revés.
-                    </p>
-                  </CardContent>
                 </Card>
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Formación Incluida</CardTitle>
+
+                <Card className="bg-gradient-to-b from-white to-odoo/5 border-odoo/20">
+                  <CardHeader className="space-y-2">
+                    <div className="h-10 w-10 rounded-full bg-odoo/15 text-odoo flex items-center justify-center mx-auto">
+                      <ShieldCheck className="h-5 w-5" />
+                    </div>
+                    <CardTitle>Formación & Éxito</CardTitle>
+                    <CardDescription>
+                      Equipos listos desde el primer día.
+                    </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">
-                      Tus equipos estarán preparados desde el día uno.
-                    </p>
-                  </CardContent>
                 </Card>
               </div>
-              <p className="mt-6 text-sm text-muted-foreground">
-                Consulta los precios oficiales de Odoo en{" "}
-                <a 
-                  href="https://www.odoo.com/es/pricing" 
-                  target="_blank" 
+
+              <p className="mt-8 text-sm text-muted-foreground">
+                Consulta precios oficiales de Odoo en{" "}
+                <a
+                  href="https://www.odoo.com/es/pricing"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-odoo hover:underline"
                 >
@@ -156,82 +180,159 @@ const Pricing = () => {
           </div>
         </section>
 
-        {/* Pricing Cards */}
-        <section className="py-16">
+        {/* PLANES (mismo diseño que la home, con info de packsHome) */}
+        <section className="relative py-16 overflow-hidden">
+          {/* fondo de puntitos violeta sutil */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -z-10 left-1/2 top-10 -translate-x-1/2"
+          >
+            <div
+              className="rounded-full opacity-60"
+              style={{
+                width: "1100px",
+                height: "520px",
+                backgroundImage:
+                  "radial-gradient(rgba(124,58,237,0.25) 1px, transparent 1.5px)",
+                backgroundSize: "14px 14px",
+                backgroundPosition: "center",
+                WebkitMaskImage:
+                  "radial-gradient(ellipse at center, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 70%)",
+                maskImage:
+                  "radial-gradient(ellipse at center, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 70%)",
+              }}
+            />
+          </div>
+
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {packs.map((pack, index) => (
-                <Card 
-                  key={index} 
-                  className={`relative ${pack.recommended ? "border-odoo border-2 shadow-xl" : ""}`}
-                >
-                  {pack.recommended && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <Badge className="bg-odoo text-white px-4 py-1">
-                        <Star className="h-3 w-3 mr-1 inline" />
-                        Recomendado
-                      </Badge>
-                    </div>
-                  )}
-                  <CardHeader>
-                    <CardTitle className="text-2xl">{pack.name}</CardTitle>
-                    <CardDescription>{pack.description}</CardDescription>
-                    <div className="mt-4">
-                      <div className="text-3xl font-bold text-odoo">{pack.price}</div>
-                      <p className="text-sm text-muted-foreground mt-1">{pack.users} usuarios</p>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3 mb-6">
-                      {pack.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <Check className="h-5 w-5 text-odoo mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-sm">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Button 
-                      onClick={scrollToContact}
-                      className={`w-full ${
-                        pack.recommended 
-                          ? "bg-odoo hover:bg-odoo-dark" 
-                          : "bg-gray-800 hover:bg-gray-700"
-                      }`}
-                    >
-                      Solicitar información
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
+            <div
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 items-stretch
+                         [perspective:1000px]"
+            >
+              {packsHome.map((p) => {
+                const isFeatured = !!p.featured;
+                const isCustom = p.id === "custom";
+                return (
+                  <Card
+                    key={p.id}
+                    className={[
+                      "relative group h-full flex flex-col transition-all duration-300",
+                      "border-neutral-200 min-h-[500px] bg-white",
+                      p.tilt ? `hover:${p.tilt}` : "",
+                      isFeatured
+                        ? "border-violet-600 shadow-xl shadow-violet-200/40 lg:-translate-y-2 lg:scale-[1.02]"
+                        : "hover:shadow-md",
+                    ].join(" ")}
+                  >
+                    <CardHeader className="pt-6 pb-4">
+                      <div className="flex items-center justify-between">
+                        <CardTitle className="text-xl font-bold">
+                          {p.title}
+                        </CardTitle>
+                        {isFeatured && (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-violet-600 text-white px-2 py-1 text-xs font-semibold">
+                            <Star className="h-3.5 w-3.5" /> Más popular
+                          </span>
+                        )}
+                      </div>
+                      <CardDescription className="text-sm text-neutral-600">
+                        {isCustom
+                          ? "A medida para tu empresa"
+                          : `Hasta ${p.users} usuarios`}
+                      </CardDescription>
+                    </CardHeader>
+
+                    {/* 👇 hace que el contenido crezca y el CTA baje */}
+                    <CardContent className="pb-6 flex flex-col grow">
+                      <ul className="space-y-2 mb-6">
+                        {featuresBase.map((f) => (
+                          <li
+                            key={f}
+                            className="flex items-start gap-2 text-sm"
+                          >
+                            <Check className="h-4 w-4 mt-0.5 text-bdr" />
+                            <span className="text-neutral-700">{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* CTA al final */}
+                      <div className="mt-auto">
+                        {isCustom ? (
+                          <Button
+                            asChild
+                            className="w-full relative bg-violet-700 hover:bg-violet-700/90 text-white
+                     before:absolute before:inset-0 before:rounded-lg
+                     before:bg-violet-500/30 before:blur-xl before:opacity-70
+                     hover:before:opacity-90 transition"
+                          >
+                            <a
+                              href={p.cta}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Sparkles className="mr-2 h-4 w-4" />
+                              Agenda una demo
+                            </a>
+                          </Button>
+                        ) : (
+                          <Button
+                            asChild
+                            className="w-full bg-bdr hover:bg-bdr/90 text-white"
+                          >
+                            <a href={p.cta}>Consultar {p.title}</a>
+                          </Button>
+                        )}
+
+                        {p.users && (
+                          <p className="text-xs text-neutral-500 text-center mt-2">
+                            {p.users} usuarios incluidos · ampliable
+                          </p>
+                        )}
+                      </div>
+                    </CardContent>
+
+                    <span
+                      className={[
+                        "pointer-events-none absolute inset-0 rounded-xl transition-opacity",
+                        isFeatured
+                          ? "ring-1 ring-violet-600/40"
+                          : "group-hover:ring-1 group-hover:ring-violet-400/40",
+                      ].join(" ")}
+                    />
+                  </Card>
+                );
+              })}
             </div>
           </div>
         </section>
 
-        {/* Custom Plan */}
+        {/* CUSTOM PLAN (conservado, por si quieres mantener el bloque comercial) */}
         <section className="py-16 bg-gradient-to-r from-odoo-dark to-odoo text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-6">¿Necesitas algo diferente?</h2>
+              <h2 className="text-3xl font-bold mb-6">
+                ¿Necesitas algo diferente?
+              </h2>
               <p className="text-xl mb-8">
-                Ofrecemos planes completamente personalizados para empresas con 
-                necesidades específicas. Más de 25 usuarios, módulos especiales, 
-                o integraciones complejas.
+                Planes personalizados para más de 25 usuarios, módulos
+                especiales o integraciones complejas.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
+                <Button
                   onClick={scrollToContact}
-                  className="bg-white text-odoo hover:bg-gray-100 transition-colors"
+                  className="bg-white text-odoo hover:bg-gray-100"
                 >
                   Solicitar plan personalizado
                 </Button>
-                <Button 
+                <Button
                   variant="outline"
                   className="bg-transparent border-white text-white hover:bg-white/10"
                   asChild
                 >
-                  <a 
-                    href="https://bdrinformatica.com/solicitar-cita" 
-                    target="_blank" 
+                  <a
+                    href={CALENDLY_URL}
+                    target="_blank"
                     rel="noopener noreferrer"
                   >
                     Agendar cita con experto
@@ -242,47 +343,30 @@ const Pricing = () => {
           </div>
         </section>
 
-        {/* Additional Info */}
+        {/* FAQ en acordeón */}
         <section className="py-12">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto">
-              <h3 className="text-2xl font-bold mb-6 text-center">Preguntas Frecuentes</h3>
-              <div className="space-y-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">¿Qué incluyen los precios?</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">
-                      Todos nuestros packs incluyen licencias de Odoo, infraestructura de hosting, 
-                      backups, actualizaciones, soporte técnico y formación inicial según el plan elegido.
-                    </p>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">¿Puedo cambiar de plan más adelante?</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">
-                      Sí, puedes actualizar o cambiar tu plan en cualquier momento según las 
-                      necesidades de tu empresa vayan evolucionando.
-                    </p>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">¿Hay costes adicionales?</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">
-                      Los precios base incluyen todo lo necesario. Solo podrían haber costes 
-                      adicionales por desarrollos muy específicos o integraciones complejas 
-                      que se cotizarían previamente.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
+              <h3 className="text-2xl font-bold mb-6 text-center">
+                Preguntas Frecuentes
+              </h3>
+
+              <Accordion type="single" collapsible className="w-full">
+                {faqs.map((f, i) => (
+                  <AccordionItem
+                    key={i}
+                    value={`item-${i}`}
+                    className="border rounded-lg mb-3 px-4"
+                  >
+                    <AccordionTrigger className="text-left py-4 text-base text-gray-800">
+                      {f.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-4 text-muted-foreground">
+                      {f.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
           </div>
         </section>

@@ -5,7 +5,7 @@ import Savings from "@/components/Savings";
 import IndustriesPreview from "@/components/IndustriesPreview";
 import Testimonial from "@/components/Testimonial";
 import Roadshow from "@/components/Roadshow";
-import ContactForm from "@/components/ContactForm";
+import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 import SEO from "@/components/SEO";
@@ -53,7 +53,7 @@ const Index = () => {
         <PartnersSection />
         <OdooSavingsSimulator />
 
-        <ContactForm />
+        <FinalCTA />
       </main>
       <Footer />
 

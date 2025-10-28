@@ -12,17 +12,8 @@ const Navbar = () => {
     { name: "Infraestructura", path: "/infraestructura" },
     { name: "Industrias", path: "/industrias" },
     { name: "Precios", path: "/precios" },
-    { name: "Contacto", path: "/#contacto" },
+    { name: "Contacto", path: "/contacto" },
   ];
-
-  const scrollToContact = () => {
-    if (location.pathname !== "/") {
-      window.location.href = "/#contacto";
-    } else {
-      const contactSection = document.getElementById("contacto");
-      contactSection?.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
@@ -43,29 +34,19 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
-            {navItems.map((item) =>
-              item.path === "/#contacto" ? (
-                <button
-                  key={item.name}
-                  onClick={scrollToContact}
-                  className="text-gray-700 hover:text-odoo transition-colors"
-                >
-                  {item.name}
-                </button>
-              ) : (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`text-gray-700 hover:text-odoo transition-colors ${
-                    location.pathname === item.path
-                      ? "text-odoo font-semibold"
-                      : ""
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              )
-            )}
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                className={`text-gray-700 hover:text-odoo transition-colors ${
+                  location.pathname === item.path
+                    ? "text-odoo font-semibold"
+                    : ""
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
             <Link
               to={"https://calendly.com/"}
               className="flex text-white text-md font-semibold bg-bdr hover:bg-bdr-light transition-colors p-2 rounded-lg px-4"
@@ -93,33 +74,20 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden pb-4">
-            {navItems.map((item) =>
-              item.path === "/#contacto" ? (
-                <button
-                  key={item.name}
-                  onClick={() => {
-                    scrollToContact();
-                    setIsMenuOpen(false);
-                  }}
-                  className="block w-full text-left py-2 text-gray-700 hover:text-odoo transition-colors"
-                >
-                  {item.name}
-                </button>
-              ) : (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`block py-2 text-gray-700 hover:text-odoo transition-colors ${
-                    location.pathname === item.path
-                      ? "text-odoo font-semibold"
-                      : ""
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              )
-            )}
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                onClick={() => setIsMenuOpen(false)}
+                className={`block py-2 text-gray-700 hover:text-odoo transition-colors ${
+                  location.pathname === item.path
+                    ? "text-odoo font-semibold"
+                    : ""
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
             <Button className="w-full mt-4 bg-bdr hover:bg-bdr-light transition-colors">
               <Calendar className="w-4 h-4 mr-2" />
               Agendar Demo

@@ -2,11 +2,12 @@
 import { Check, Sparkles, Star } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import pricingGrowth from "@/assets/pricing-growth.png";
 
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CALENDLY_URL = "https://calendly.com/tu-enlace"; // <-- cámbialo
+const CALENDLY_URL = "https://bdrinformatica.com/solicitar-cita";
 
 type Pack = {
   id: string;
@@ -101,15 +102,11 @@ export default function PricingPacks() {
         />
       </div>
 
-      <div className="container">
-        {/* Título / subtítulo (mismo estilo que el módulo anterior) */}
-        <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-            Planes pensados para escalar contigo
-          </h2>
-          <p className="mt-2 text-muted-foreground">
-            Elige el pack de licencias que mejor se adapta a tu equipo. Si
-            necesitas algo especial, diseñamos un plan a medida.
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold mb-4">Planes y Precios</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Elige el plan que mejor se adapte a tu empresa. Todos incluyen infraestructura, soporte y actualizaciones.
           </p>
         </div>
 
@@ -121,14 +118,14 @@ export default function PricingPacks() {
           {PACKS.map((p) => {
             const isFeatured = !!p.featured;
             return (
-              <Card
+                <Card
                 key={p.id}
                 className={[
-                  "relative group h-full transition-all duration-300",
-                  "border-neutral-200 bg-white",
+                  "relative group h-full flex flex-col transition-all duration-300",
+                  "border-neutral-200 min-h-[500px] bg-white",
                   p.hoverTilt ? `hover:${p.hoverTilt}` : "",
                   isFeatured
-                    ? "border-violet-600 shadow-xl shadow-violet-200/40 lg:-translate-y-2 lg:scale-[1.02]"
+                    ? "border-[#7e57c5] shadow-xl shadow-[#7e57c5]/20 lg:-translate-y-2 lg:scale-[1.02]"
                     : "hover:shadow-md",
                 ].join(" ")}
               >
@@ -138,8 +135,8 @@ export default function PricingPacks() {
                       {p.title}
                     </CardTitle>
                     {isFeatured && (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-violet-600 text-white px-2 py-1 text-xs font-semibold">
-                        <Star size={14} /> Más popular
+                      <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-[#7e57c5] to-[#e81f76] text-white px-2 py-1 text-xs font-semibold">
+                        <Star className="h-3.5 w-3.5" /> Más popular
                       </span>
                     )}
                   </div>
@@ -151,54 +148,53 @@ export default function PricingPacks() {
                   <ul className="space-y-2 mb-6">
                     {BASE_FEATURES.map((f) => (
                       <li key={f} className="flex items-start gap-2 text-sm">
-                        <Check className="h-4 w-4 mt-0.5 text-bdr" />
+                        <Check className="h-4 w-4 mt-0.5 text-[#1EAEDB]" />
                         <span className="text-neutral-700">{f}</span>
                       </li>
                     ))}
                   </ul>
 
-                  {/* CTA */}
-                  {p.id === "custom" ? (
-                    <Button
-                      asChild
-                      className="w-full relative bg-violet-700 hover:bg-violet-700/90 text-white
-                                 before:absolute before:inset-0 before:rounded-lg
-                                 before:bg-violet-500/30 before:blur-xl before:opacity-70
-                                 hover:before:opacity-90 transition"
-                    >
-                      <a
-                        href={p.ctaHref}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                  <div className="mt-auto">
+                    {p.id === "custom" ? (
+                      <Button
+                        asChild
+                        className="w-full relative bg-gradient-to-r from-[#7e57c5] to-[#e81f76] hover:opacity-90 text-white
+                     before:absolute before:inset-0 before:rounded-lg
+                     before:bg-[#7e57c5]/30 before:blur-xl before:opacity-70
+                     hover:before:opacity-90 transition"
                       >
-                        <Sparkles className="mr-2 h-4 w-4" />
-                        {p.ctaLabel}
-                      </a>
-                    </Button>
-                  ) : (
-                    <Button
-                      asChild
-                      className="w-full bg-bdr hover:bg-bdr/90 text-white"
-                    >
-                      <Link to={p.ctaHref}>{p.ctaLabel}</Link>
-                    </Button>
-                  )}
+                        <a
+                          href={p.ctaHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Sparkles className="mr-2 h-4 w-4" />
+                          {p.ctaLabel}
+                        </a>
+                      </Button>
+                    ) : (
+                      <Button
+                        asChild
+                        className="w-full bg-[#1EAEDB] hover:bg-[#33C3F0] text-white"
+                      >
+                        <Link to={p.ctaHref}>{p.ctaLabel}</Link>
+                      </Button>
+                    )}
 
-                  {/* Etiqueta de seats (si aplica) */}
-                  {p.seats && (
-                    <p className="text-xs text-neutral-500 text-center mt-2">
-                      {p.seats} usuarios incluidos · ampliable
-                    </p>
-                  )}
+                    {p.seats && (
+                      <p className="text-xs text-neutral-500 text-center mt-2">
+                        {p.seats} usuarios incluidos · ampliable
+                      </p>
+                    )}
+                  </div>
                 </CardContent>
 
-                {/* Bordes/halo sutil al pasar el mouse */}
                 <span
                   className={[
-                    "pointer-events-none absolute inset-0 rounded-lg transition-opacity",
+                    "pointer-events-none absolute inset-0 rounded-xl transition-opacity",
                     isFeatured
-                      ? "ring-1 ring-violet-600/40"
-                      : "group-hover:ring-1 group-hover:ring-violet-600/60",
+                      ? "ring-1 ring-[#7e57c5]/40"
+                      : "group-hover:ring-1 group-hover:ring-[#7e57c5]/40",
                   ].join(" ")}
                 />
               </Card>

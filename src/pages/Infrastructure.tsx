@@ -1,8 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Server, Shield, Zap, CloudCog, HeartHandshake, Trophy } from "lucide-react";
+import { Server, Shield, Zap, CloudCog, HeartHandshake, Trophy, Check, X } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import SEO from "@/components/SEO";
+import infrastructureHero from "@/assets/infrastructure-hero.jpg";
 
 const Infrastructure = () => {
   const features = [
@@ -38,15 +39,67 @@ const Infrastructure = () => {
     }
   ];
 
+  const comparison = [
+    {
+      feature: "Hosting en Andorra",
+      bdr: true,
+      odooOnline: false,
+      odooSh: false
+    },
+    {
+      feature: "Soporte técnico local",
+      bdr: true,
+      odooOnline: false,
+      odooSh: false
+    },
+    {
+      feature: "Backups diarios",
+      bdr: true,
+      odooOnline: true,
+      odooSh: true
+    },
+    {
+      feature: "Personalizaciones ilimitadas",
+      bdr: true,
+      odooOnline: false,
+      odooSh: true
+    },
+    {
+      feature: "99.9% uptime garantizado",
+      bdr: true,
+      odooOnline: true,
+      odooSh: true
+    },
+    {
+      feature: "Precio competitivo",
+      bdr: true,
+      odooOnline: true,
+      odooSh: false
+    },
+    {
+      feature: "Control total de la infraestructura",
+      bdr: true,
+      odooOnline: false,
+      odooSh: true
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <SEO />
       <Navbar />
       
       <main className="pt-16">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-r from-odoo-dark to-odoo py-20 text-white">
-          <div className="container mx-auto px-4">
+        {/* Hero Section with Image */}
+        <section className="relative bg-gradient-to-r from-[#091633] via-[#7e57c5] to-[#e81f76] py-20 text-white overflow-hidden">
+          <div className="absolute inset-0 opacity-20">
+            <img 
+              src={infrastructureHero} 
+              alt="Infraestructura moderna" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 Infraestructura Robusta para tu Negocio
@@ -56,6 +109,62 @@ const Infrastructure = () => {
                 diseñada específicamente para garantizar el máximo rendimiento y 
                 seguridad de tu sistema Odoo.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Comparison Section */}
+        <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Comparativa de Infraestructuras</h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Descubre por qué nuestra infraestructura on-premise es la mejor opción para tu empresa en Andorra
+              </p>
+            </div>
+
+            <div className="max-w-5xl mx-auto overflow-x-auto">
+              <table className="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+                <thead>
+                  <tr className="bg-gradient-to-r from-[#091633] to-[#7e57c5] text-white">
+                    <th className="py-4 px-6 text-left">Características</th>
+                    <th className="py-4 px-6 text-center">BDR On-Premise</th>
+                    <th className="py-4 px-6 text-center">Odoo Online</th>
+                    <th className="py-4 px-6 text-center">Odoo.sh</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparison.map((item, index) => (
+                    <tr 
+                      key={index} 
+                      className={`border-b ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} hover:bg-[#7e57c5]/5 transition-colors`}
+                    >
+                      <td className="py-4 px-6 font-medium">{item.feature}</td>
+                      <td className="py-4 px-6 text-center">
+                        {item.bdr ? (
+                          <Check className="h-6 w-6 text-green-600 mx-auto" />
+                        ) : (
+                          <X className="h-6 w-6 text-red-500 mx-auto" />
+                        )}
+                      </td>
+                      <td className="py-4 px-6 text-center">
+                        {item.odooOnline ? (
+                          <Check className="h-6 w-6 text-green-600 mx-auto" />
+                        ) : (
+                          <X className="h-6 w-6 text-red-500 mx-auto" />
+                        )}
+                      </td>
+                      <td className="py-4 px-6 text-center">
+                        {item.odooSh ? (
+                          <Check className="h-6 w-6 text-green-600 mx-auto" />
+                        ) : (
+                          <X className="h-6 w-6 text-red-500 mx-auto" />
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
@@ -73,9 +182,9 @@ const Infrastructure = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {features.map((feature, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow">
+                <Card key={index} className="hover:shadow-lg transition-shadow border-l-4 border-l-[#7e57c5]">
                   <CardHeader>
-                    <div className="h-12 w-12 bg-odoo/10 text-odoo rounded-full flex items-center justify-center mb-4">
+                    <div className="h-12 w-12 bg-gradient-to-br from-[#7e57c5] to-[#e81f76] text-white rounded-full flex items-center justify-center mb-4">
                       <feature.icon className="h-6 w-6" />
                     </div>
                     <CardTitle>{feature.title}</CardTitle>

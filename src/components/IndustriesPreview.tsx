@@ -55,6 +55,9 @@ const IndustriesPreview = () => {
         </div>
 
         <div className="text-center">
+          <p className="text-lg text-muted-foreground mb-4">
+            Y mucho más...
+          </p>
           <Button asChild className="bg-odoo hover:bg-odoo-dark">
             <Link to="/industrias">
               Ver todas las industrias

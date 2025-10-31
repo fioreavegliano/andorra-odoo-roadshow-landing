@@ -9,8 +9,8 @@ const Hero = () => {
   };
 
   return (
-    <header className="relative min-h-[500px] bg-gradient-to-r from-odoo-dark to-odoo py-16 md:py-20 text-white overflow-hidden mt-16">
-      <div className="absolute inset-0 opacity-10 bg-[url('/lovable-uploads/a4506746-0054-4859-97f2-f76de8bfb875.png')] bg-center bg-cover"></div>
+    <header className="relative min-h-[500px] bg-gradient-to-br from-[#091633] via-[#7e57c5] to-[#e81f76] py-16 md:py-20 text-white overflow-hidden mt-16">
+      <div className="absolute inset-0 opacity-20 bg-[url('/lovable-uploads/a4506746-0054-4859-97f2-f76de8bfb875.png')] bg-center bg-cover"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-left md:text-left mt-10 md:w-4/4 lg:w-3/3 mx-auto">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">

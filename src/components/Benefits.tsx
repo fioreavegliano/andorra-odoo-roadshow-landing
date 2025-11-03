@@ -10,12 +10,12 @@ const BenefitCard = ({
   description: string 
 }) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md transition-all hover:shadow-xl hover:scale-105">
+    <div className="bg-white p-6 rounded-lg shadow-md transition-all hover:shadow-xl hover:scale-105 h-full flex flex-col">
       <div className="h-12 w-12 bg-gradient-to-br from-[#7e57c5] to-[#e81f76] text-white rounded-full flex items-center justify-center mb-4 mx-auto">
         <Icon className="h-6 w-6" />
       </div>
       <h3 className="text-xl font-bold mb-2 text-center">{title}</h3>
-      <p className="text-gray-600 text-center">{description}</p>
+      <p className="text-gray-600 text-center flex-grow">{description}</p>
     </div>
   );
 };
@@ -67,7 +67,7 @@ const Benefits = () => {
         {/* Circular Layout with Odoo Logo in Center */}
         <div className="relative max-w-5xl mx-auto">
           {/* Benefits grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {benefits.map((benefit, index) => (
               <div 
                 key={index}

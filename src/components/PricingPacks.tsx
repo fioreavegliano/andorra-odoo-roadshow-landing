@@ -110,7 +110,7 @@ export default function PricingPacks() {
           </p>
         </div>
 
-        {/* Grid con “perspectiva” y carta central destacada */}
+        {/* Grid con "perspectiva" y carta central destacada */}
         <div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 items-stretch
                      [perspective:1000px]"
@@ -143,9 +143,9 @@ export default function PricingPacks() {
                   <p className="text-sm text-neutral-600">{p.subtitle}</p>
                 </CardHeader>
 
-                <CardContent className="pb-6">
-                  {/* “Incluye” */}
-                  <ul className="space-y-2 mb-6">
+                <CardContent className="pb-6 flex flex-col flex-grow">
+                  {/* "Incluye" */}
+                  <ul className="space-y-2 mb-auto">
                     {BASE_FEATURES.map((f) => (
                       <li key={f} className="flex items-start gap-2 text-sm">
                         <Check className="h-4 w-4 mt-0.5 text-[#1EAEDB]" />
@@ -154,7 +154,7 @@ export default function PricingPacks() {
                     ))}
                   </ul>
 
-                  <div className="mt-auto">
+                  <div className="mt-6">
                     {p.id === "custom" ? (
                       <Button
                         asChild

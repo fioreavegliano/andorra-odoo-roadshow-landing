@@ -80,8 +80,8 @@ const featuresBase = [
 
 const faqs = [
   {
-    q: "¿Qué incluyen los precios?",
-    a: "Licencias de Odoo, infraestructura de hosting, backups, actualizaciones, soporte técnico y formación inicial según el plan.",
+    q: "¿Qué incluyen nuestros servicios?",
+    a: "Implementación guiada, infraestructura de hosting en Andorra, backups diarios, actualizaciones, soporte técnico local y formación inicial. Las licencias de Odoo se adquieren directamente con Odoo.",
   },
   {
     q: "¿Puedo cambiar de plan más adelante?",
@@ -110,7 +110,7 @@ const Pricing = () => {
             </h1>
             <p className="text-xl mb-8 max-w-3xl mx-auto">
               Elige el plan que mejor se adapta a tu empresa. Todos los packs
-              incluyen infraestructura, soporte y actualizaciones.
+              incluyen implementación, infraestructura, soporte y actualizaciones. Las licencias de Odoo se adquieren directamente con Odoo.
             </p>
           </div>
         </section>

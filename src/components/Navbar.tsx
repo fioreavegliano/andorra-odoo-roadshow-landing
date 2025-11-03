@@ -24,9 +24,9 @@ const Navbar = () => {
             className="inline-flex items-center min-w-[150px] sm:min-w-[150px] lg:min-w-[180px]"
           >
             <img
-              src="public/LOGOTIPO_BDR_ODOO_CORPORATIVO_POSITIVO.svg"
+              src="/LOGOTIPO_BDR_ODOO_CORPORATIVO_POSITIVO.svg"
               alt="Logotipo BDR Odoo"
-              className="block h-full w-auto"
+              className="block h-12 w-auto"
               loading="eager"
               decoding="async"
             />

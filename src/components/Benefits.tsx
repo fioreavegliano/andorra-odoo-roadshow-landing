@@ -28,19 +28,19 @@ const Benefits = () => {
       description: "Adapta Odoo a tu negocio con módulos específicos. Solo implementa lo que necesitas."
     },
     {
-      icon: TrendingUp,
-      title: "Escalable",
-      description: "Crece con tu empresa. Añade funcionalidades a medida que tu negocio se expande."
-    },
-    {
       icon: Shield,
       title: "Open Source",
       description: "Tecnología abierta, transparente y con una comunidad activa de desarrolladores."
     },
     {
+      icon: TrendingUp,
+      title: "Evolución constante",
+      description: "Odoo se renueva cada año con mejoras en rendimiento, diseño y funcionalidades para seguir liderando la gestión empresarial."
+    },
+    {
       icon: Users,
-      title: "Ideal para PYMES andorranas",
-      description: "Diseñado específicamente para satisfacer las necesidades de las empresas locales."
+      title: "Soluciones por Industria",
+      description: "Odoo combina flexibilidad y tecnología para ofrecer soluciones adaptadas a cada sector, optimizando la gestión y el rendimiento empresarial."
     },
     {
       icon: Zap,
@@ -66,19 +66,8 @@ const Benefits = () => {
         
         {/* Circular Layout with Odoo Logo in Center */}
         <div className="relative max-w-5xl mx-auto">
-          {/* Central Logo */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-            <div className="bg-white rounded-full p-8 shadow-2xl border-4 border-[#7e57c5]">
-              <img 
-                src="/LOGOTIPO_BDR_ODOO_CORPORATIVO_POSITIVO.svg" 
-                alt="Odoo Logo" 
-                className="h-24 w-24"
-              />
-            </div>
-          </div>
-
-          {/* Benefits in circular arrangement */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-32 pb-32">
+          {/* Benefits grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefits.map((benefit, index) => (
               <div 
                 key={index}

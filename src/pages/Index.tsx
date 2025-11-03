@@ -68,7 +68,7 @@ const Index = () => {
         </button>
       )}
 
-      <FloatingCTA />
+      {/* FloatingCTA hidden per user request */}
     </div>
   );
 };

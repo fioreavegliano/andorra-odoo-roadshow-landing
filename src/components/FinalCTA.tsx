@@ -7,15 +7,15 @@ const FinalCTA = () => {
     <section className="py-20 bg-gradient-to-br from-odoo via-odoo-dark to-bdr">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-          ¿Listo para transformar tu negocio?
+          Preparat per transformar el teu negoci?
         </h2>
         <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-          Descubre cómo Odoo puede optimizar tus procesos y aumentar tu productividad.
+          Descobreix com Odoo pot optimitzar els teus processos i augmentar la teva productivitat.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/contacto">
             <Button size="lg" variant="secondary" className="text-lg px-8">
-              Contáctanos
+              Contacta'ns
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>

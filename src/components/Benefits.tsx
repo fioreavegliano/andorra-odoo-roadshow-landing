@@ -24,33 +24,33 @@ const Benefits = () => {
   const benefits = [
     {
       icon: Layers,
-      title: "Modular y Personalizable",
-      description: "Adapta Odoo a tu negocio con módulos específicos. Solo implementa lo que necesitas."
+      title: "Modular i personalitzable",
+      description: "Adapta Odoo al teu negoci amb mòduls específics. Només implementa el que necessites."
     },
     {
       icon: Shield,
       title: "Open Source",
-      description: "Tecnología abierta, transparente y con una comunidad activa de desarrolladores."
+      description: "Tecnologia oberta, transparent i amb una comunitat activa de desenvolupadors."
     },
     {
       icon: TrendingUp,
-      title: "Evolución constante",
-      description: "Odoo se renueva cada año con mejoras en rendimiento, diseño y funcionalidades para seguir liderando la gestión empresarial."
+      title: "Evolució constant",
+      description: "Odoo es renova cada any amb millores en rendiment, disseny i funcionalitats per seguir liderant la gestió empresarial."
     },
     {
       icon: Users,
-      title: "Soluciones por Industria",
-      description: "Odoo combina flexibilidad y tecnología para ofrecer soluciones adaptadas a cada sector, optimizando la gestión y el rendimiento empresarial."
+      title: "Solucions per indústria",
+      description: "Odoo combina flexibilitat i tecnologia per oferir solucions adaptades a cada sector, optimitzant la gestió i el rendiment empresarial."
     },
     {
       icon: Zap,
-      title: "Interfaz intuitiva",
-      description: "Fácil de usar para todos los empleados, reduciendo la curva de aprendizaje."
+      title: "Interfície intuïtiva",
+      description: "Fàcil d'usar per a tots els empleats, reduint la corba d'aprenentatge."
     },
     {
       icon: Check,
-      title: "Todo integrado",
-      description: "CRM, inventario, contabilidad, ventas, compras, recursos humanos y más en una sola plataforma."
+      title: "Tot integrat",
+      description: "CRM, inventari, comptabilitat, vendes, compres, recursos humans i més en una sola plataforma."
     }
   ];
 
@@ -58,15 +58,13 @@ const Benefits = () => {
     <section className="py-16 bg-gradient-to-b from-gray-50 to-white" id="beneficios">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">¿Por qué Odoo?</h2>
+          <h2 className="text-4xl font-bold mb-4">Per què Odoo?</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Descubre por qué Odoo es el ERP más completo y adecuado para empresas andorranas de todos los tamaños y sectores.
+            Descobreix per què Odoo és l'ERP més complet i adequat per a empreses andorranes de totes les mides i sectors.
           </p>
         </div>
         
-        {/* Circular Layout with Odoo Logo in Center */}
         <div className="relative max-w-5xl mx-auto">
-          {/* Benefits grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {benefits.map((benefit, index) => (
               <div 

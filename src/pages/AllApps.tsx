@@ -106,10 +106,10 @@ const CALENDLY_URL = "https://bdrinformatica.com/solicitar-cita";
 export default function AllApps() {
   return (
     <div className="min-h-screen bg-background">
-      <SEO
-        title="Totes les aplicacions Odoo | BDR Informàtica"
-        description="Descobreix totes les aplicacions Odoo disponibles: CRM, comptabilitat, inventari, RRHH, eCommerce i molt més."
-      />
+      <Helmet>
+        <title>Totes les aplicacions Odoo | BDR Informàtica</title>
+        <meta name="description" content="Descobreix totes les aplicacions Odoo disponibles: CRM, comptabilitat, inventari, RRHH, eCommerce i molt més." />
+      </Helmet>
       <Navbar />
 
       <main className="pt-24 pb-20">

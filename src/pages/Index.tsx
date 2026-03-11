@@ -12,7 +12,7 @@ import SEO from "@/components/SEO";
 import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
 import OdooSavingsSimulator from "@/components/OdooSavingsSimulator";
-import PricingPacks from "@/components/PricingPacks";
+import SolutionsSection from "@/components/SolutionsSection";
 import PartnersSection from "@/components/PartnersSection";
 
 const Index = () => {

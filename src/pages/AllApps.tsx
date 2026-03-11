@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import SEO from "@/components/SEO";
-import { ArrowRight, Calendar } from "lucide-react";
+import { Helmet } from "react-helmet-async";
+import { Calendar } from "lucide-react";
 
 type AppItem = { name: string; desc: string; icon: string };
 type Category = { title: string; apps: AppItem[] };

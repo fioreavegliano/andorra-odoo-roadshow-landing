@@ -9,6 +9,7 @@ import Infrastructure from "./pages/Infrastructure";
 import Industries from "./pages/Industries";
 import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
+import AllApps from "./pages/AllApps";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();

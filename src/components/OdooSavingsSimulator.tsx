@@ -125,7 +125,7 @@ const OdooSavingsSimulator: React.FC<{ className?: string }> = ({ className }) =
   const visibleApps = expanded ? selectedApps : selectedApps.slice(0, 7);
 
   return (
-    <section className={className}>
+    <section id="estalvi" className={className}>
       <div className="container mb-8 text-center my-20">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
           Redueix les teves despeses amb Odoo

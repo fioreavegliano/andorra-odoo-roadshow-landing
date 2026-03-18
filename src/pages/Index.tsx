@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Benefits from "@/components/Benefits";
-import IndustriesPreview from "@/components/IndustriesPreview";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { ArrowUp } from "lucide-react";
@@ -36,7 +35,6 @@ const Index = () => {
         <Benefits />
         <SolutionsSection />
         <PDEBanner />
-        <IndustriesPreview />
         <OdooSavingsSimulator />
         <FAQSection />
         <ContactSection />

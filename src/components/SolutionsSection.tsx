@@ -36,7 +36,7 @@ const SOLUTIONS = [
 
 export default function SolutionsSection() {
   return (
-    <section className="py-20 bg-gradient-to-b from-muted/40 to-background">
+    <section id="solucions" className="py-20 bg-gradient-to-b from-muted/40 to-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-14">
           <h2 className="text-4xl font-bold mb-4">Una necessitat, un mòdul</h2>

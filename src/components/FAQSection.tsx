@@ -34,7 +34,7 @@ const FAQS = [
 
 export default function FAQSection() {
   return (
-    <section className="py-20 bg-gradient-to-b from-muted/30 to-background">
+    <section id="faq" className="py-20 bg-gradient-to-b from-muted/30 to-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">Preguntes freqüents</h2>

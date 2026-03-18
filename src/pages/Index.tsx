@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Benefits from "@/components/Benefits";
 import IndustriesPreview from "@/components/IndustriesPreview";
-import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { ArrowUp } from "lucide-react";
@@ -10,6 +9,8 @@ import { useEffect, useState } from "react";
 import OdooSavingsSimulator from "@/components/OdooSavingsSimulator";
 import SolutionsSection from "@/components/SolutionsSection";
 import FAQSection from "@/components/FAQSection";
+import PDEBanner from "@/components/PDEBanner";
+import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -34,10 +35,11 @@ const Index = () => {
       <main>
         <Benefits />
         <SolutionsSection />
+        <PDEBanner />
         <IndustriesPreview />
         <OdooSavingsSimulator />
         <FAQSection />
-        <FinalCTA />
+        <ContactSection />
       </main>
       <Footer />
 

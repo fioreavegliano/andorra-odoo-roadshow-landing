@@ -1,4 +1,6 @@
-import { Check, Shield, Zap, Layers, Users, TrendingUp } from "lucide-react";
+import { Eye, Zap, BarChart3, TrendingUp, Smile, Link2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const BenefitCard = ({ 
   icon: Icon, 
@@ -10,12 +12,12 @@ const BenefitCard = ({
   description: string 
 }) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md transition-all hover:shadow-xl hover:scale-105 h-full flex flex-col">
+    <div className="bg-card p-6 rounded-lg shadow-md transition-all hover:shadow-xl hover:scale-105 h-full flex flex-col border border-border">
       <div className="h-12 w-12 bg-gradient-to-br from-[#7e57c5] to-[#e81f76] text-white rounded-full flex items-center justify-center mb-4 mx-auto">
         <Icon className="h-6 w-6" />
       </div>
       <h3 className="text-xl font-bold mb-2 text-center">{title}</h3>
-      <p className="text-gray-600 text-center flex-grow">{description}</p>
+      <p className="text-muted-foreground text-center flex-grow">{description}</p>
     </div>
   );
 };
@@ -23,44 +25,44 @@ const BenefitCard = ({
 const Benefits = () => {
   const benefits = [
     {
-      icon: Layers,
-      title: "Modular i personalitzable",
-      description: "Adapta Odoo al teu negoci amb mòduls específics. Només implementa el que necessites."
-    },
-    {
-      icon: Shield,
-      title: "Open Source",
-      description: "Tecnologia oberta, transparent i amb una comunitat activa de desenvolupadors."
-    },
-    {
-      icon: TrendingUp,
-      title: "Evolució constant",
-      description: "Odoo es renova cada any amb millores en rendiment, disseny i funcionalitats per seguir liderant la gestió empresarial."
-    },
-    {
-      icon: Users,
-      title: "Solucions per indústria",
-      description: "Odoo combina flexibilitat i tecnologia per oferir solucions adaptades a cada sector, optimitzant la gestió i el rendiment empresarial."
+      icon: Eye,
+      title: "Control 360°",
+      description: "Gestiona vendes, finances, clients, projectes i inventari des d'una sola pantalla."
     },
     {
       icon: Zap,
-      title: "Interfície intuïtiva",
-      description: "Fàcil d'usar per a tots els empleats, reduint la corba d'aprenentatge."
+      title: "Automatització intel·ligent",
+      description: "Elimina errors manuals i redueix temps en tasques repetitives."
     },
     {
-      icon: Check,
-      title: "Tot integrat",
-      description: "CRM, inventari, comptabilitat, vendes, compres, recursos humans i més en una sola plataforma."
+      icon: BarChart3,
+      title: "Dades en temps real",
+      description: "Pren decisions estratègiques basades en informació actualitzada, no en suposicions."
+    },
+    {
+      icon: TrendingUp,
+      title: "Escalabilitat",
+      description: "Comença amb el que necessites avui i afegeix funcionalitats a mesura que el teu negoci s'expandeix, sense canviar mai d'eina."
+    },
+    {
+      icon: Smile,
+      title: "Interfície intuïtiva",
+      description: "Oblida els programes antics i grisos. Gaudeix d'una eina fàcil d'aprendre i d'utilitzar per a tot el teu equip."
+    },
+    {
+      icon: Link2,
+      title: "Integració total",
+      description: "Connecta totes les àrees de la teva empresa. Quan alguna cosa passa en vendes, comptabilitat ja ho sap."
     }
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-gray-50 to-white" id="beneficios">
+    <section className="py-16 bg-gradient-to-b from-muted/40 to-background" id="beneficis">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">Per què Odoo?</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Descobreix per què Odoo és l'ERP més complet i adequat per a empreses andorranes de totes les mides i sectors.
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Molt més que un ERP: l'avantatge competitiu que la teva empresa necessita
           </p>
         </div>
         
@@ -81,6 +83,14 @@ const Benefits = () => {
                 />
               </div>
             ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link to="/contacto">
+              <Button size="lg" className="bg-bdr hover:bg-bdr-light text-lg px-8">
+                Contacta amb nosaltres
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

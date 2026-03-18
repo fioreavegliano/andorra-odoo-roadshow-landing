@@ -52,7 +52,7 @@ const Navbar = () => {
             <a
               href="#contacte"
               onClick={(e) => { e.preventDefault(); handleNavClick("#contacte"); }}
-              className="flex text-white text-md font-semibold bg-bdr hover:bg-bdr-light transition-colors p-2 rounded-lg px-4"
+              className="flex text-white text-sm font-semibold bg-bdr hover:bg-bdr-light transition-colors p-2 rounded-lg px-4 whitespace-nowrap"
             >
               Sol·licita informació
             </a>

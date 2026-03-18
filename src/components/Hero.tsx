@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   const scrollToContact = () => {
-    const contactSection = document.getElementById("contacto");
+    const contactSection = document.getElementById("contacte");
     contactSection?.scrollIntoView({ behavior: "smooth" });
   };
 

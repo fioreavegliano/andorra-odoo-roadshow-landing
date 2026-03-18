@@ -60,13 +60,13 @@ export default function SolutionsSection() {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="flex justify-end mt-8 max-w-5xl mx-auto">
           <Link
             to="/aplicacions"
-            className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8 py-3 rounded-lg transition-colors text-base"
+            className="inline-flex items-center gap-2 text-[#6610f2] hover:text-[#7c3aed] font-semibold transition-colors text-base group"
           >
             Descobreix-los tots
-            <ArrowRight className="h-5 w-5" />
+            <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>

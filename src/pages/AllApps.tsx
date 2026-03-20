@@ -31,7 +31,7 @@ const CATEGORIES: Category[] = [
   {
     title: "Finances",
     apps: [
-      { name: "Comptabilitat", desc: "Gestiona la teva comptabilitat financera i analítica", icon: "📒" },
+      { name: "Comptabilitat", desc: "Gestiona la teva comptabilitat financera i analítica", icon: "📒", img: "/app-icons/comptabilitat.svg" },
       { name: "Facturació", desc: "Factures i pagaments", icon: "🧾" },
       { name: "Despeses", desc: "Gestiona les despeses dels teus empleats", icon: "💳" },
       { name: "Documents", desc: "Gestió de documents", icon: "📁" },

@@ -1,7 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
-import { Calendar } from "lucide-react";
+import { Calendar, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
 type AppItem = { name: string; desc: string; icon: string; img?: string };
 type Category = { title: string; apps: AppItem[] };
@@ -103,6 +105,101 @@ const CATEGORIES: Category[] = [
 
 const CALENDLY_URL = "https://bdrinformatica.com/solicitar-cita";
 
+function AppCard({ app, index }: { app: AppItem; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        opacity: 0,
+        transform: "translateY(16px)",
+        transition: `opacity 500ms cubic-bezier(0.16,1,0.3,1) ${index * 60}ms, transform 500ms cubic-bezier(0.16,1,0.3,1) ${index * 60}ms`,
+      }}
+      className="group relative bg-card border border-border/60 rounded-2xl p-6 hover:shadow-lg hover:shadow-accent/8 hover:border-accent/40 transition-all duration-300 active:scale-[0.98]"
+    >
+      <div className="flex items-start gap-4">
+        <div className="shrink-0 w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/15 transition-colors">
+          {app.img ? (
+            <img src={app.img} alt={app.name} className="w-7 h-7" />
+          ) : (
+            <span className="text-xl leading-none">{app.icon}</span>
+          )}
+        </div>
+        <div className="min-w-0">
+          <h3 className="font-semibold text-[0.95rem] text-foreground mb-0.5 leading-tight">{app.name}</h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">{app.desc}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CategorySection({ cat, catIndex }: { cat: Category; catIndex: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        opacity: 0,
+        transform: "translateY(20px)",
+        transition: `opacity 600ms cubic-bezier(0.16,1,0.3,1) ${catIndex * 80}ms, transform 600ms cubic-bezier(0.16,1,0.3,1) ${catIndex * 80}ms`,
+      }}
+      className="mb-16"
+    >
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-1 h-7 rounded-full bg-accent" />
+        <h2 className="text-xl font-bold text-foreground tracking-tight">
+          {cat.title}
+        </h2>
+        <span className="text-xs font-medium text-muted-foreground bg-muted px-2.5 py-1 rounded-full">
+          {cat.apps.length} {cat.apps.length === 1 ? "app" : "apps"}
+        </span>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {cat.apps.map((app, i) => (
+          <AppCard key={app.name} app={app} index={i} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function AllApps() {
   return (
     <div className="min-h-screen bg-background">
@@ -113,55 +210,66 @@ export default function AllApps() {
       <Navbar />
 
       <main className="pt-24 pb-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        {/* Hero header */}
+        <div className="relative overflow-hidden bg-gradient-to-br from-[#1a0a3e] via-[#6610f2] to-[#8b4ef9] py-20 md:py-28 mb-16">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(139,78,249,0.3),transparent_60%)]" />
+          <div className="container mx-auto px-4 relative z-10">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-medium mb-8 transition-colors group"
+            >
+              <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+              Tornar a l'inici
+            </Link>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 max-w-3xl" style={{ lineHeight: "1.1" }}>
               Una aplicació per a cada necessitat
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed">
               Odoo ofereix +80 mòduls integrats perquè puguis gestionar tot el teu negoci des d'una sola plataforma.
             </p>
+            <div className="flex flex-wrap gap-3 mt-8">
+              {CATEGORIES.map((cat) => (
+                <button
+                  key={cat.title}
+                  onClick={() => {
+                    const el = document.getElementById(`cat-${cat.title}`);
+                    el?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                  className="px-4 py-2 rounded-full text-sm font-medium bg-white/10 text-white/90 hover:bg-white/20 backdrop-blur-sm transition-colors border border-white/10"
+                >
+                  {cat.title}
+                </button>
+              ))}
+            </div>
           </div>
+        </div>
 
-          {CATEGORIES.map((cat) => (
-            <div key={cat.title} className="mb-14">
-              <h2 className="text-2xl font-bold mb-6 border-b border-border pb-3">
-                {cat.title}
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {cat.apps.map((app) => (
-                  <div
-                    key={app.name}
-                    className="group bg-card border border-border rounded-xl p-5 hover:shadow-md hover:border-accent transition-all duration-200"
-                  >
-                    {app.img ? (
-                      <img src={app.img} alt={app.name} className="w-8 h-8 mb-3" />
-                    ) : (
-                      <span className="text-3xl mb-3 block">{app.icon}</span>
-                    )}
-                    <h3 className="font-semibold text-base mb-1">{app.name}</h3>
-                    <p className="text-sm text-muted-foreground">{app.desc}</p>
-                  </div>
-                ))}
-              </div>
+        {/* Categories */}
+        <div className="container mx-auto px-4 max-w-6xl">
+          {CATEGORIES.map((cat, i) => (
+            <div key={cat.title} id={`cat-${cat.title}`} className="scroll-mt-24">
+              <CategorySection cat={cat} catIndex={i} />
             </div>
           ))}
 
           {/* Final CTA */}
-          <div className="text-center mt-10 py-16 bg-accent/10 rounded-2xl">
-            <h2 className="text-3xl font-bold mb-4">Vols veure-ho en acció?</h2>
-            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              Agenda una demo personalitzada i descobreix com Odoo pot transformar el teu negoci.
-            </p>
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8 py-4 rounded-lg transition-colors text-lg"
-            >
-              <Calendar className="h-5 w-5" />
-              Vull veure una demo
-            </a>
+          <div className="relative overflow-hidden text-center mt-8 py-20 rounded-3xl bg-gradient-to-br from-[#1a0a3e] to-[#6610f2]">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(139,78,249,0.4),transparent_60%)]" />
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Vols veure-ho en acció?</h2>
+              <p className="text-white/75 mb-8 max-w-xl mx-auto text-lg">
+                Agenda una demo personalitzada i descobreix com Odoo pot transformar el teu negoci.
+              </p>
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 bg-white text-[#6610f2] hover:bg-white/90 font-semibold px-8 py-4 rounded-xl transition-all text-lg shadow-lg shadow-black/20 active:scale-[0.97]"
+              >
+                <Calendar className="h-5 w-5" />
+                Vull veure una demo
+              </a>
+            </div>
           </div>
         </div>
       </main>

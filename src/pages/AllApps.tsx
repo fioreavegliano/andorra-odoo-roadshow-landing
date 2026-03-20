@@ -11,7 +11,7 @@ const CATEGORIES: Category[] = [
     title: "Lloc web",
     apps: [
       { name: "Lloc web", desc: "Creador de llocs web empresarials", icon: "🌐" },
-      { name: "Comerç electrònic", desc: "Ven els teus productes en línia", icon: "🛒" },
+      { name: "Comerç electrònic", desc: "Ven els teus productes en línia", icon: "🛒", img: "/app-icons/comerc.svg" },
       { name: "Blog", desc: "Publica articles, anuncis i notícies", icon: "📝" },
       { name: "Fòrum", desc: "Gestiona un fòrum de preguntes freqüents", icon: "💬" },
       { name: "eLearning", desc: "Gestiona i publica els teus cursos", icon: "🎓" },

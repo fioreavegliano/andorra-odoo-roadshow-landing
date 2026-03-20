@@ -42,7 +42,7 @@ const CATEGORIES: Category[] = [
   {
     title: "Inventari i fabricació",
     apps: [
-      { name: "Inventari", desc: "Gestiona el teu inventari i activitats de logística", icon: "📦" },
+      { name: "Inventari", desc: "Gestiona el teu inventari i activitats de logística", icon: "📦", img: "/app-icons/inventari.svg" },
       { name: "Manufactura", desc: "Ordres de fabricació i llistes de materials", icon: "🏭" },
       { name: "PLM", desc: "Gestió del cicle de vida del producte", icon: "🔧" },
       { name: "Compres", desc: "Ordres de compra, licitacions i contractes", icon: "🛍️" },

@@ -21,7 +21,7 @@ const CATEGORIES: Category[] = [
   {
     title: "Vendes",
     apps: [
-      { name: "CRM", desc: "Gestiona els teus leads i tanca oportunitats", icon: "🎯" },
+      { name: "CRM", desc: "Gestiona els teus leads i tanca oportunitats", icon: "🎯", img: "/app-icons/crm.svg" },
       { name: "Vendes", desc: "De pressupostos a factures", icon: "📊" },
       { name: "Punt de venda", desc: "Interfície per a botigues i restaurants", icon: "🏪" },
       { name: "Subscripcions", desc: "Factures recurrents i renovacions", icon: "🔄" },

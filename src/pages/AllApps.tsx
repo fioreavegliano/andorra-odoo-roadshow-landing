@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { Calendar } from "lucide-react";
 
-type AppItem = { name: string; desc: string; icon: string };
+type AppItem = { name: string; desc: string; icon: string; img?: string };
 type Category = { title: string; apps: AppItem[] };
 
 const CATEGORIES: Category[] = [
@@ -11,7 +11,7 @@ const CATEGORIES: Category[] = [
     title: "Lloc web",
     apps: [
       { name: "Lloc web", desc: "Creador de llocs web empresarials", icon: "🌐" },
-      { name: "Comerç electrònic", desc: "Ven els teus productes en línia", icon: "🛒" },
+      { name: "Comerç electrònic", desc: "Ven els teus productes en línia", icon: "🛒", img: "/app-icons/comerc.svg" },
       { name: "Blog", desc: "Publica articles, anuncis i notícies", icon: "📝" },
       { name: "Fòrum", desc: "Gestiona un fòrum de preguntes freqüents", icon: "💬" },
       { name: "eLearning", desc: "Gestiona i publica els teus cursos", icon: "🎓" },
@@ -21,7 +21,7 @@ const CATEGORIES: Category[] = [
   {
     title: "Vendes",
     apps: [
-      { name: "CRM", desc: "Gestiona els teus leads i tanca oportunitats", icon: "🎯" },
+      { name: "CRM", desc: "Gestiona els teus leads i tanca oportunitats", icon: "🎯", img: "/app-icons/crm.svg" },
       { name: "Vendes", desc: "De pressupostos a factures", icon: "📊" },
       { name: "Punt de venda", desc: "Interfície per a botigues i restaurants", icon: "🏪" },
       { name: "Subscripcions", desc: "Factures recurrents i renovacions", icon: "🔄" },
@@ -31,7 +31,7 @@ const CATEGORIES: Category[] = [
   {
     title: "Finances",
     apps: [
-      { name: "Comptabilitat", desc: "Gestiona la teva comptabilitat financera i analítica", icon: "📒" },
+      { name: "Comptabilitat", desc: "Gestiona la teva comptabilitat financera i analítica", icon: "📒", img: "/app-icons/comptabilitat.svg" },
       { name: "Facturació", desc: "Factures i pagaments", icon: "🧾" },
       { name: "Despeses", desc: "Gestiona les despeses dels teus empleats", icon: "💳" },
       { name: "Documents", desc: "Gestió de documents", icon: "📁" },
@@ -42,7 +42,7 @@ const CATEGORIES: Category[] = [
   {
     title: "Inventari i fabricació",
     apps: [
-      { name: "Inventari", desc: "Gestiona el teu inventari i activitats de logística", icon: "📦" },
+      { name: "Inventari", desc: "Gestiona el teu inventari i activitats de logística", icon: "📦", img: "/app-icons/inventari.svg" },
       { name: "Manufactura", desc: "Ordres de fabricació i llistes de materials", icon: "🏭" },
       { name: "PLM", desc: "Gestió del cicle de vida del producte", icon: "🔧" },
       { name: "Compres", desc: "Ordres de compra, licitacions i contractes", icon: "🛍️" },
@@ -54,7 +54,7 @@ const CATEGORIES: Category[] = [
     title: "Recursos humans",
     apps: [
       { name: "Empleats", desc: "Centralitza la informació dels teus empleats", icon: "👥" },
-      { name: "Reclutament", desc: "Monitoritza el flux de reclutament", icon: "🔍" },
+      { name: "Reclutament", desc: "Monitoritza el flux de reclutament", icon: "🔍", img: "/app-icons/reclutament.svg" },
       { name: "Vacances", desc: "Assigna i fes seguiment de les absències", icon: "🏖️" },
       { name: "Avaluacions", desc: "Avalua els teus empleats", icon: "⭐" },
       { name: "Referències", desc: "Comparteix llocs de treball", icon: "🤝" },
@@ -75,7 +75,7 @@ const CATEGORIES: Category[] = [
   {
     title: "Serveis",
     apps: [
-      { name: "Projectes", desc: "Organitza i planifica els teus projectes", icon: "📐" },
+      { name: "Projectes", desc: "Organitza i planifica els teus projectes", icon: "📐", img: "/app-icons/projectes.svg" },
       { name: "Registre d'hores", desc: "Monitoritza el temps invertit en tasques", icon: "⏱️" },
       { name: "Servei extern", desc: "Programa i monitoritza operacions externes", icon: "🔧" },
       { name: "Suport al client", desc: "Monitoritza i soluciona tickets", icon: "🎧" },
@@ -134,7 +134,11 @@ export default function AllApps() {
                     key={app.name}
                     className="group bg-card border border-border rounded-xl p-5 hover:shadow-md hover:border-accent transition-all duration-200"
                   >
-                    <span className="text-3xl mb-3 block">{app.icon}</span>
+                    {app.img ? (
+                      <img src={app.img} alt={app.name} className="w-8 h-8 mb-3" />
+                    ) : (
+                      <span className="text-3xl mb-3 block">{app.icon}</span>
+                    )}
                     <h3 className="font-semibold text-base mb-1">{app.name}</h3>
                     <p className="text-sm text-muted-foreground">{app.desc}</p>
                   </div>

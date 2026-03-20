@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { Calendar } from "lucide-react";
 
-type AppItem = { name: string; desc: string; icon: string };
+type AppItem = { name: string; desc: string; icon: string; img?: string };
 type Category = { title: string; apps: AppItem[] };
 
 const CATEGORIES: Category[] = [

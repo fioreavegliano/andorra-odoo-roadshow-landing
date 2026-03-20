@@ -134,7 +134,11 @@ export default function AllApps() {
                     key={app.name}
                     className="group bg-card border border-border rounded-xl p-5 hover:shadow-md hover:border-accent transition-all duration-200"
                   >
-                    <span className="text-3xl mb-3 block">{app.icon}</span>
+                    {app.img ? (
+                      <img src={app.img} alt={app.name} className="w-8 h-8 mb-3" />
+                    ) : (
+                      <span className="text-3xl mb-3 block">{app.icon}</span>
+                    )}
                     <h3 className="font-semibold text-base mb-1">{app.name}</h3>
                     <p className="text-sm text-muted-foreground">{app.desc}</p>
                   </div>

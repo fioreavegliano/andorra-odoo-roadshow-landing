@@ -54,7 +54,7 @@ const CATEGORIES: Category[] = [
     title: "Recursos humans",
     apps: [
       { name: "Empleats", desc: "Centralitza la informació dels teus empleats", icon: "👥" },
-      { name: "Reclutament", desc: "Monitoritza el flux de reclutament", icon: "🔍" },
+      { name: "Reclutament", desc: "Monitoritza el flux de reclutament", icon: "🔍", img: "/app-icons/reclutament.svg" },
       { name: "Vacances", desc: "Assigna i fes seguiment de les absències", icon: "🏖️" },
       { name: "Avaluacions", desc: "Avalua els teus empleats", icon: "⭐" },
       { name: "Referències", desc: "Comparteix llocs de treball", icon: "🤝" },

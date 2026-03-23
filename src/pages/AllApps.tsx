@@ -68,10 +68,10 @@ const CATEGORIES: Category[] = [
     apps: [
       { name: "Automatització de màrqueting", desc: "Campanyes de correu automatitzades", icon: "🤖", img: "/app-icons/automatitzacio-marqueting.svg" },
       { name: "Email màrqueting", desc: "Dissenya, envia i monitoritza correus", icon: "📧", img: "/app-icons/email-marqueting.svg" },
-      { name: "SMS màrqueting", desc: "Dissenya, envia i monitoritza SMS", icon: "📱" },
+      { name: "SMS màrqueting", desc: "Dissenya, envia i monitoritza SMS", icon: "📱", img: "/app-icons/sms-marqueting.svg" },
       { name: "Xarxes socials", desc: "Gestiona les teves xarxes socials", icon: "📣", img: "/app-icons/xarxes-socials.svg" },
-      { name: "Esdeveniments", desc: "Publica esdeveniments i ven entrades", icon: "🎪" },
-      { name: "Enquestes", desc: "Envia enquestes o comparteix-les en directe", icon: "📋" },
+      { name: "Esdeveniments", desc: "Publica esdeveniments i ven entrades", icon: "🎪", img: "/app-icons/esdeveniments.svg" },
+      { name: "Enquestes", desc: "Envia enquestes o comparteix-les en directe", icon: "📋", img: "/app-icons/enquestes.svg" },
     ],
   },
   {

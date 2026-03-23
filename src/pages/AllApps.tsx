@@ -98,7 +98,7 @@ const CATEGORIES: Category[] = [
   {
     title: "Personalització",
     apps: [
-      { name: "Studio", desc: "Crea i personalitza les teves pròpies aplicacions", icon: "🎨" },
+      { name: "Studio", desc: "Crea i personalitza les teves pròpies aplicacions", icon: "🎨", img: "/app-icons/studio.svg" },
     ],
   },
 ];

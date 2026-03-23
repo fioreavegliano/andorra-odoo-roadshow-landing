@@ -138,7 +138,7 @@ function AppCard({ app, index }: { app: AppItem; index: number }) {
       <div className="flex items-start gap-4">
         <div className="shrink-0 w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/15 transition-colors">
           {app.img ? (
-            <img src={app.img} alt={app.name} className="w-7 h-7" style={{ filter: "url(#duotone-violet)" }} />
+            <img src={app.img} alt={app.name} className="w-7 h-7" />
           ) : (
             <span className="text-xl leading-none">{app.icon}</span>
           )}
@@ -203,19 +203,6 @@ function CategorySection({ cat, catIndex }: { cat: Category; catIndex: number })
 export default function AllApps() {
   return (
     <div className="min-h-screen bg-background">
-      {/* SVG duotone filter: violet (#6610f2) + light blue (#2EBCFA) */}
-      <svg className="absolute w-0 h-0" aria-hidden="true">
-        <defs>
-          <filter id="duotone-violet" colorInterpolationFilters="sRGB">
-            <feColorMatrix type="saturate" values="0" />
-            <feComponentTransfer>
-              <feFuncR type="table" values="0.4 0.18" />
-              <feFuncG type="table" values="0.063 0.74" />
-              <feFuncB type="table" values="0.949 0.98" />
-            </feComponentTransfer>
-          </filter>
-        </defs>
-      </svg>
       <Helmet>
         <title>Totes les aplicacions Odoo | BDR Informàtica</title>
         <meta name="description" content="Descobreix totes les aplicacions Odoo disponibles: CRM, comptabilitat, inventari, RRHH, eCommerce i molt més." />

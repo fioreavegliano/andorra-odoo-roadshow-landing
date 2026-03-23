@@ -59,8 +59,8 @@ const CATEGORIES: Category[] = [
       { name: "Reclutament", desc: "Monitoritza el flux de reclutament", icon: "🔍", img: "/app-icons/reclutament.svg" },
       { name: "Vacances", desc: "Assigna i fes seguiment de les absències", icon: "🏖️", img: "/app-icons/vacances.svg" },
       { name: "Avaluacions", desc: "Avalua els teus empleats", icon: "⭐" },
-      { name: "Referències", desc: "Comparteix llocs de treball", icon: "🤝" },
-      { name: "Flota", desc: "Gestiona la teva flota de vehicles", icon: "🚗" },
+      { name: "Referències", desc: "Comparteix llocs de treball", icon: "🤝", img: "/app-icons/referencies.svg" },
+      { name: "Flota", desc: "Gestiona la teva flota de vehicles", icon: "🚗", img: "/app-icons/flota.svg" },
     ],
   },
   {

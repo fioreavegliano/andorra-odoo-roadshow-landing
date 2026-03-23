@@ -59,8 +59,8 @@ const CATEGORIES: Category[] = [
       { name: "Reclutament", desc: "Monitoritza el flux de reclutament", icon: "🔍", img: "/app-icons/reclutament.svg" },
       { name: "Vacances", desc: "Assigna i fes seguiment de les absències", icon: "🏖️", img: "/app-icons/vacances.svg" },
       { name: "Avaluacions", desc: "Avalua els teus empleats", icon: "⭐" },
-      { name: "Referències", desc: "Comparteix llocs de treball", icon: "🤝" },
-      { name: "Flota", desc: "Gestiona la teva flota de vehicles", icon: "🚗" },
+      { name: "Referències", desc: "Comparteix llocs de treball", icon: "🤝", img: "/app-icons/referencies.svg" },
+      { name: "Flota", desc: "Gestiona la teva flota de vehicles", icon: "🚗", img: "/app-icons/flota.svg" },
     ],
   },
   {
@@ -68,10 +68,10 @@ const CATEGORIES: Category[] = [
     apps: [
       { name: "Automatització de màrqueting", desc: "Campanyes de correu automatitzades", icon: "🤖", img: "/app-icons/automatitzacio-marqueting.svg" },
       { name: "Email màrqueting", desc: "Dissenya, envia i monitoritza correus", icon: "📧", img: "/app-icons/email-marqueting.svg" },
-      { name: "SMS màrqueting", desc: "Dissenya, envia i monitoritza SMS", icon: "📱" },
+      { name: "SMS màrqueting", desc: "Dissenya, envia i monitoritza SMS", icon: "📱", img: "/app-icons/sms-marqueting.svg" },
       { name: "Xarxes socials", desc: "Gestiona les teves xarxes socials", icon: "📣", img: "/app-icons/xarxes-socials.svg" },
-      { name: "Esdeveniments", desc: "Publica esdeveniments i ven entrades", icon: "🎪" },
-      { name: "Enquestes", desc: "Envia enquestes o comparteix-les en directe", icon: "📋" },
+      { name: "Esdeveniments", desc: "Publica esdeveniments i ven entrades", icon: "🎪", img: "/app-icons/esdeveniments.svg" },
+      { name: "Enquestes", desc: "Envia enquestes o comparteix-les en directe", icon: "📋", img: "/app-icons/enquestes.svg" },
     ],
   },
   {
@@ -79,19 +79,19 @@ const CATEGORIES: Category[] = [
     apps: [
       { name: "Projectes", desc: "Organitza i planifica els teus projectes", icon: "📐", img: "/app-icons/projectes.svg" },
       { name: "Registre d'hores", desc: "Monitoritza el temps invertit en tasques", icon: "⏱️", img: "/app-icons/registre-hores.svg" },
-      { name: "Servei extern", desc: "Programa i monitoritza operacions externes", icon: "🔧" },
+      { name: "Servei extern", desc: "Programa i monitoritza operacions externes", icon: "🔧", img: "/app-icons/servei-extern.svg" },
       { name: "Suport al client", desc: "Monitoritza i soluciona tickets", icon: "🎧", img: "/app-icons/suport-client.svg" },
       { name: "Planificació", desc: "Gestiona l'horari dels teus empleats", icon: "📅", img: "/app-icons/planificacio.svg" },
-      { name: "Cites", desc: "Permet que altres agendin reunions amb tu", icon: "🗓️" },
+      { name: "Cites", desc: "Permet que altres agendin reunions amb tu", icon: "🗓️", img: "/app-icons/cites.svg" },
     ],
   },
   {
     title: "Productivitat",
     apps: [
       { name: "Converses", desc: "Xat, passarel·la de correus i canals privats", icon: "💬", img: "/app-icons/converses.svg" },
-      { name: "Aprovacions", desc: "Crea i valida sol·licituds d'aprovació", icon: "✔️" },
-      { name: "IoT", desc: "Models bàsics i assistents per a IoT", icon: "📡" },
-      { name: "VOIP", desc: "Fes i rep trucades", icon: "📞" },
+      { name: "Aprovacions", desc: "Crea i valida sol·licituds d'aprovació", icon: "✔️", img: "/app-icons/aprovacions.svg" },
+      { name: "IoT", desc: "Models bàsics i assistents per a IoT", icon: "📡", img: "/app-icons/iot.svg" },
+      { name: "VOIP", desc: "Fes i rep trucades", icon: "📞", img: "/app-icons/voip.svg" },
       { name: "Articles", desc: "Gestiona la teva biblioteca d'informació", icon: "📚", img: "/app-icons/articles.svg" },
     ],
   },
@@ -138,7 +138,7 @@ function AppCard({ app, index }: { app: AppItem; index: number }) {
       <div className="flex items-start gap-4">
         <div className="shrink-0 w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/15 transition-colors">
           {app.img ? (
-            <img src={app.img} alt={app.name} className="w-7 h-7" />
+            <img src={app.img} alt={app.name} className="w-7 h-7" style={{ filter: "url(#duotone-violet)" }} />
           ) : (
             <span className="text-xl leading-none">{app.icon}</span>
           )}
@@ -203,6 +203,19 @@ function CategorySection({ cat, catIndex }: { cat: Category; catIndex: number })
 export default function AllApps() {
   return (
     <div className="min-h-screen bg-background">
+      {/* SVG duotone filter: violet (#6610f2) + light blue (#2EBCFA) */}
+      <svg className="absolute w-0 h-0" aria-hidden="true">
+        <defs>
+          <filter id="duotone-violet" colorInterpolationFilters="sRGB">
+            <feColorMatrix type="saturate" values="0" />
+            <feComponentTransfer>
+              <feFuncR type="table" values="0.4 0.18" />
+              <feFuncG type="table" values="0.063 0.74" />
+              <feFuncB type="table" values="0.949 0.98" />
+            </feComponentTransfer>
+          </filter>
+        </defs>
+      </svg>
       <Helmet>
         <title>Totes les aplicacions Odoo | BDR Informàtica</title>
         <meta name="description" content="Descobreix totes les aplicacions Odoo disponibles: CRM, comptabilitat, inventari, RRHH, eCommerce i molt més." />

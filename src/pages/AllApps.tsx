@@ -78,10 +78,10 @@ const CATEGORIES: Category[] = [
     title: "Serveis",
     apps: [
       { name: "Projectes", desc: "Organitza i planifica els teus projectes", icon: "📐", img: "/app-icons/projectes.svg" },
-      { name: "Registre d'hores", desc: "Monitoritza el temps invertit en tasques", icon: "⏱️" },
+      { name: "Registre d'hores", desc: "Monitoritza el temps invertit en tasques", icon: "⏱️", img: "/app-icons/registre-hores.svg" },
       { name: "Servei extern", desc: "Programa i monitoritza operacions externes", icon: "🔧" },
-      { name: "Suport al client", desc: "Monitoritza i soluciona tickets", icon: "🎧" },
-      { name: "Planificació", desc: "Gestiona l'horari dels teus empleats", icon: "📅" },
+      { name: "Suport al client", desc: "Monitoritza i soluciona tickets", icon: "🎧", img: "/app-icons/suport-client.svg" },
+      { name: "Planificació", desc: "Gestiona l'horari dels teus empleats", icon: "📅", img: "/app-icons/planificacio.svg" },
       { name: "Cites", desc: "Permet que altres agendin reunions amb tu", icon: "🗓️" },
     ],
   },

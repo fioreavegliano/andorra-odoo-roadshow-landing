@@ -57,7 +57,7 @@ const CATEGORIES: Category[] = [
     apps: [
       { name: "Empleats", desc: "Centralitza la informació dels teus empleats", icon: "👥" },
       { name: "Reclutament", desc: "Monitoritza el flux de reclutament", icon: "🔍", img: "/app-icons/reclutament.svg" },
-      { name: "Vacances", desc: "Assigna i fes seguiment de les absències", icon: "🏖️" },
+      { name: "Vacances", desc: "Assigna i fes seguiment de les absències", icon: "🏖️", img: "/app-icons/vacances.svg" },
       { name: "Avaluacions", desc: "Avalua els teus empleats", icon: "⭐" },
       { name: "Referències", desc: "Comparteix llocs de treball", icon: "🤝" },
       { name: "Flota", desc: "Gestiona la teva flota de vehicles", icon: "🚗" },
@@ -66,10 +66,10 @@ const CATEGORIES: Category[] = [
   {
     title: "Màrqueting",
     apps: [
-      { name: "Automatització de màrqueting", desc: "Campanyes de correu automatitzades", icon: "🤖" },
-      { name: "Email màrqueting", desc: "Dissenya, envia i monitoritza correus", icon: "📧" },
+      { name: "Automatització de màrqueting", desc: "Campanyes de correu automatitzades", icon: "🤖", img: "/app-icons/automatitzacio-marqueting.svg" },
+      { name: "Email màrqueting", desc: "Dissenya, envia i monitoritza correus", icon: "📧", img: "/app-icons/email-marqueting.svg" },
       { name: "SMS màrqueting", desc: "Dissenya, envia i monitoritza SMS", icon: "📱" },
-      { name: "Xarxes socials", desc: "Gestiona les teves xarxes socials", icon: "📣" },
+      { name: "Xarxes socials", desc: "Gestiona les teves xarxes socials", icon: "📣", img: "/app-icons/xarxes-socials.svg" },
       { name: "Esdeveniments", desc: "Publica esdeveniments i ven entrades", icon: "🎪" },
       { name: "Enquestes", desc: "Envia enquestes o comparteix-les en directe", icon: "📋" },
     ],
@@ -78,27 +78,27 @@ const CATEGORIES: Category[] = [
     title: "Serveis",
     apps: [
       { name: "Projectes", desc: "Organitza i planifica els teus projectes", icon: "📐", img: "/app-icons/projectes.svg" },
-      { name: "Registre d'hores", desc: "Monitoritza el temps invertit en tasques", icon: "⏱️" },
+      { name: "Registre d'hores", desc: "Monitoritza el temps invertit en tasques", icon: "⏱️", img: "/app-icons/registre-hores.svg" },
       { name: "Servei extern", desc: "Programa i monitoritza operacions externes", icon: "🔧" },
-      { name: "Suport al client", desc: "Monitoritza i soluciona tickets", icon: "🎧" },
-      { name: "Planificació", desc: "Gestiona l'horari dels teus empleats", icon: "📅" },
+      { name: "Suport al client", desc: "Monitoritza i soluciona tickets", icon: "🎧", img: "/app-icons/suport-client.svg" },
+      { name: "Planificació", desc: "Gestiona l'horari dels teus empleats", icon: "📅", img: "/app-icons/planificacio.svg" },
       { name: "Cites", desc: "Permet que altres agendin reunions amb tu", icon: "🗓️" },
     ],
   },
   {
     title: "Productivitat",
     apps: [
-      { name: "Converses", desc: "Xat, passarel·la de correus i canals privats", icon: "💬" },
+      { name: "Converses", desc: "Xat, passarel·la de correus i canals privats", icon: "💬", img: "/app-icons/converses.svg" },
       { name: "Aprovacions", desc: "Crea i valida sol·licituds d'aprovació", icon: "✔️" },
       { name: "IoT", desc: "Models bàsics i assistents per a IoT", icon: "📡" },
       { name: "VOIP", desc: "Fes i rep trucades", icon: "📞" },
-      { name: "Articles", desc: "Gestiona la teva biblioteca d'informació", icon: "📚" },
+      { name: "Articles", desc: "Gestiona la teva biblioteca d'informació", icon: "📚", img: "/app-icons/articles.svg" },
     ],
   },
   {
     title: "Personalització",
     apps: [
-      { name: "Studio", desc: "Crea i personalitza les teves pròpies aplicacions", icon: "🎨" },
+      { name: "Studio", desc: "Crea i personalitza les teves pròpies aplicacions", icon: "🎨", img: "/app-icons/studio.svg" },
     ],
   },
 ];

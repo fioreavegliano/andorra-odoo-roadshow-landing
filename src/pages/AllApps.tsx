@@ -88,11 +88,11 @@ const CATEGORIES: Category[] = [
   {
     title: "Productivitat",
     apps: [
-      { name: "Converses", desc: "Xat, passarel·la de correus i canals privats", icon: "💬" },
+      { name: "Converses", desc: "Xat, passarel·la de correus i canals privats", icon: "💬", img: "/app-icons/converses.svg" },
       { name: "Aprovacions", desc: "Crea i valida sol·licituds d'aprovació", icon: "✔️" },
       { name: "IoT", desc: "Models bàsics i assistents per a IoT", icon: "📡" },
       { name: "VOIP", desc: "Fes i rep trucades", icon: "📞" },
-      { name: "Articles", desc: "Gestiona la teva biblioteca d'informació", icon: "📚" },
+      { name: "Articles", desc: "Gestiona la teva biblioteca d'informació", icon: "📚", img: "/app-icons/articles.svg" },
     ],
   },
   {

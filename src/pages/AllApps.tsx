@@ -138,7 +138,7 @@ function AppCard({ app, index }: { app: AppItem; index: number }) {
       <div className="flex items-start gap-4">
         <div className="shrink-0 w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/15 transition-colors">
           {app.img ? (
-            <img src={app.img} alt={app.name} className="w-7 h-7" style={{ filter: "url(#duotone-violet)" }} />
+            <img src={app.img} alt={app.name} className="w-7 h-7" />
           ) : (
             <span className="text-xl leading-none">{app.icon}</span>
           )}

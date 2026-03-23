@@ -203,19 +203,6 @@ function CategorySection({ cat, catIndex }: { cat: Category; catIndex: number })
 export default function AllApps() {
   return (
     <div className="min-h-screen bg-background">
-      {/* SVG duotone filter: violet (#6610f2) + light blue (#2EBCFA) */}
-      <svg className="absolute w-0 h-0" aria-hidden="true">
-        <defs>
-          <filter id="duotone-violet" colorInterpolationFilters="sRGB">
-            <feColorMatrix type="saturate" values="0" />
-            <feComponentTransfer>
-              <feFuncR type="table" values="0.4 0.18" />
-              <feFuncG type="table" values="0.063 0.74" />
-              <feFuncB type="table" values="0.949 0.98" />
-            </feComponentTransfer>
-          </filter>
-        </defs>
-      </svg>
       <Helmet>
         <title>Totes les aplicacions Odoo | BDR Informàtica</title>
         <meta name="description" content="Descobreix totes les aplicacions Odoo disponibles: CRM, comptabilitat, inventari, RRHH, eCommerce i molt més." />

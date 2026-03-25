@@ -12,30 +12,30 @@ const CATEGORIES: Category[] = [
   {
     title: "Lloc web",
     apps: [
-      { name: "Lloc web", desc: "Creador de llocs web empresarials", icon: "🌐" },
+      { name: "Lloc web", desc: "Creador de llocs web empresarials", icon: "🌐", img: "/app-icons/lloc-web.svg" },
       { name: "Comerç electrònic", desc: "Ven els teus productes en línia", icon: "🛒", img: "/app-icons/comerc.svg" },
-      { name: "Blog", desc: "Publica articles, anuncis i notícies", icon: "📝" },
+      { name: "Blog", desc: "Publica articles, anuncis i notícies", icon: "📝", img: "/app-icons/blog.svg" },
       { name: "Fòrum", desc: "Gestiona un fòrum de preguntes freqüents", icon: "💬" },
       { name: "eLearning", desc: "Gestiona i publica els teus cursos", icon: "🎓" },
-      { name: "Xat en viu", desc: "Xateja amb els visitants del teu lloc web", icon: "💭" },
+      { name: "Xat en viu", desc: "Xateja amb els visitants del teu lloc web", icon: "💭", img: "/app-icons/xat-en-viu.svg" },
     ],
   },
   {
     title: "Vendes",
     apps: [
       { name: "CRM", desc: "Gestiona els teus leads i tanca oportunitats", icon: "🎯", img: "/app-icons/crm.svg" },
-      { name: "Vendes", desc: "De pressupostos a factures", icon: "📊" },
+      { name: "Vendes", desc: "De pressupostos a factures", icon: "📊", img: "/app-icons/vendes.svg" },
       { name: "Punt de venda", desc: "Interfície per a botigues i restaurants", icon: "🏪", img: "/app-icons/punt-de-venda.svg" },
       { name: "Subscripcions", desc: "Factures recurrents i renovacions", icon: "🔄", img: "/app-icons/subscripcions.svg" },
-      { name: "Lloguer", desc: "Gestiona contractes, entregues i devolucions", icon: "📋" },
+      { name: "Lloguer", desc: "Gestiona contractes, entregues i devolucions", icon: "📋", img: "/app-icons/lloguer.svg" },
     ],
   },
   {
     title: "Finances",
     apps: [
       { name: "Comptabilitat", desc: "Gestiona la teva comptabilitat financera i analítica", icon: "📒", img: "/app-icons/comptabilitat.svg" },
-      { name: "Facturació", desc: "Factures i pagaments", icon: "🧾" },
-      { name: "Despeses", desc: "Gestiona les despeses dels teus empleats", icon: "💳" },
+      { name: "Facturació", desc: "Factures i pagaments", icon: "🧾", img: "/app-icons/facturacio.svg" },
+      { name: "Despeses", desc: "Gestiona les despeses dels teus empleats", icon: "💳", img: "/app-icons/despeses.svg" },
       { name: "Documents", desc: "Gestió de documents", icon: "📁", img: "/app-icons/documents.svg" },
       { name: "Fulls de càlcul", desc: "Documents i fulls de càlcul", icon: "📈", img: "/app-icons/fulls-calcul.svg" },
       { name: "Signatura electrònica", desc: "Signa documents en línia", icon: "✍️" },
@@ -46,10 +46,10 @@ const CATEGORIES: Category[] = [
     apps: [
       { name: "Inventari", desc: "Gestiona el teu inventari i activitats de logística", icon: "📦", img: "/app-icons/inventari.svg" },
       { name: "Manufactura", desc: "Ordres de fabricació i llistes de materials", icon: "🏭", img: "/app-icons/manufactura.svg" },
-      { name: "PLM", desc: "Gestió del cicle de vida del producte", icon: "🔧" },
+      { name: "PLM", desc: "Gestió del cicle de vida del producte", icon: "🔧", img: "/app-icons/plm.svg" },
       { name: "Compres", desc: "Ordres de compra, licitacions i contractes", icon: "🛍️", img: "/app-icons/compres.svg" },
-      { name: "Manteniment", desc: "Monitoritza equips i gestiona sol·licituds", icon: "🔩" },
-      { name: "Qualitat", desc: "Controla la qualitat dels teus productes", icon: "✅" },
+      { name: "Manteniment", desc: "Monitoritza equips i gestiona sol·licituds", icon: "🔩", img: "/app-icons/manteniment.svg" },
+      { name: "Qualitat", desc: "Controla la qualitat dels teus productes", icon: "✅", img: "/app-icons/qualitat.svg" },
     ],
   },
   {

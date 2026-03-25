@@ -26,19 +26,6 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 md:justify-start">
             <Link
               to=""
-              onClick={(e) => {
-                if (scrollToContact) {
-                  e.preventDefault();
-                  scrollToContact();
-                }
-              }}
-              className="inline-flex items-center justify-center px-4 py-2 rounded-md border bg-white text-odoo-dark hover:bg-gray-100 transition-colors text-base font-medium"
-            >
-              Sol·licita informació
-            </Link>
-
-            <Link
-              to=""
               className="inline-flex items-center justify-center px-4 py-2 rounded-md bg-bdr hover:bg-bdr-light transition-colors text-base font-medium text-white"
               target="_blank"
               rel="noopener noreferrer"

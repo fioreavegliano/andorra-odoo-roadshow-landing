@@ -12,12 +12,12 @@ const BenefitCard = ({
   description: string 
 }) => {
   return (
-    <div className="bg-card p-6 rounded-lg shadow-md transition-all hover:shadow-xl hover:scale-105 h-full flex flex-col border border-border">
-      <div className="h-12 w-12 bg-gradient-to-br from-[#7e57c5] to-[#e81f76] text-white rounded-full flex items-center justify-center mb-4 mx-auto">
+    <div className="group bg-card rounded-xl border border-border p-6 hover:shadow-lg hover:border-accent transition-all duration-300 h-full flex flex-col">
+      <div className="h-12 w-12 rounded-lg bg-accent/15 text-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
         <Icon className="h-6 w-6" />
       </div>
-      <h3 className="text-xl font-bold mb-2 text-center">{title}</h3>
-      <p className="text-muted-foreground text-center flex-grow">{description}</p>
+      <h3 className="text-lg font-semibold mb-2">{title}</h3>
+      <p className="text-sm text-muted-foreground leading-relaxed flex-grow">{description}</p>
     </div>
   );
 };

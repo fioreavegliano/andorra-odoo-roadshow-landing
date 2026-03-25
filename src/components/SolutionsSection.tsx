@@ -1,34 +1,34 @@
-import { Briefcase, Calculator, Users, ShoppingCart, FolderKanban, UserCheck, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const SOLUTIONS = [
   {
-    icon: Briefcase,
+    img: "/app-icons/inventari.svg",
     title: "ERP / Gestió Integral",
     description: "Centralitza operacions, millora l'eficiència i aconsegueix una visió 360º del teu negoci.",
   },
   {
-    icon: Calculator,
+    img: "/app-icons/comptabilitat.svg",
     title: "Comptabilitat",
     description: "Automatitza facturació, conciliacions i informes amb configuracions alineades amb la normativa del país.",
   },
   {
-    icon: Users,
+    img: "/app-icons/crm.svg",
     title: "CRM – Gestió comercial",
     description: "Controla leads, oportunitats, clients i previsions de venda des d'un únic panell.",
   },
   {
-    icon: ShoppingCart,
+    img: "/app-icons/comerc.svg",
     title: "eCommerce",
     description: "Crea la teva botiga en línia totalment integrada amb l'inventari, vendes, logística i comptabilitat.",
   },
   {
-    icon: FolderKanban,
+    img: "/app-icons/projectes.svg",
     title: "Projectes i serveis",
     description: "Planifica, assigna recursos, registra temps i factura els teus serveis amb precisió absoluta.",
   },
   {
-    icon: UserCheck,
+    img: "/app-icons/empleats.svg",
     title: "Recursos Humans",
     description: "Gestiona treballadors, contractes i absències sota la normativa laboral andorrana des d'una plataforma eficient i fàcil d'utilitzar.",
   },
@@ -51,8 +51,8 @@ export default function SolutionsSection() {
               key={s.title}
               className="group bg-card rounded-xl border border-border p-6 hover:shadow-lg hover:border-accent transition-all duration-300"
             >
-              <div className="h-12 w-12 rounded-lg bg-accent/15 text-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <s.icon className="h-6 w-6" />
+              <div className="h-12 w-12 rounded-lg bg-accent/15 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <img src={s.img} alt={s.title} className="h-7 w-7" />
               </div>
               <h3 className="text-lg font-semibold mb-2">{s.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{s.description}</p>

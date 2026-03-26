@@ -114,7 +114,7 @@ const Footer = () => {
               © {new Date().getFullYear()} BDR Group. Tots els drets reservats.
             </p>
             <div className="flex space-x-4 text-sm text-gray-400">
-              <a href="#" className="hover:text-white transition-colors">
+              <a href="/politica-privadesa" className="hover:text-white transition-colors">
                 Política de privadesa
               </a>
               <a href="#" className="hover:text-white transition-colors">

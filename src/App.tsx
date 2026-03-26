@@ -10,6 +10,7 @@ import Industries from "./pages/Industries";
 import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
 import AllApps from "./pages/AllApps";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/precios" element={<Pricing />} />
             <Route path="/contacto" element={<Contact />} />
             <Route path="/aplicacions" element={<AllApps />} />
+            <Route path="/politica-privadesa" element={<PrivacyPolicy />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
